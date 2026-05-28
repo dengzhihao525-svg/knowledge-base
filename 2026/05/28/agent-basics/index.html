@@ -16,19 +16,19 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="dengzhihao525-svg">
+  <meta name="author" content="zhihao-ailab">
   <meta name="keywords" content="AI, Agent, LLM, MCP, 机器学习">
   
     <meta name="description" content="Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Agent 是什么">
-<meta property="og:url" content="https://dengzhihao525-svg.github.io/knowledge-base/2026/05/28/agent-basics/index.html">
+<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/05/28/agent-basics/index.html">
 <meta property="og:site_name" content="AI学习笔记">
 <meta property="og:description" content="Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-27T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-28T04:55:16.118Z">
-<meta property="article:author" content="dengzhihao525-svg">
+<meta property="article:author" content="zhihao-ailab">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Agent">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"dengzhihao525-svg.github.io","root":"/knowledge-base/","version":"1.9.9","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/knowledge-base/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhihao-ailab.github.io","root":"/knowledge-base/","version":"1.9.9","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/knowledge-base/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -438,13 +438,13 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Agent 是什么</div>
-      <div>https://dengzhihao525-svg.github.io/knowledge-base/2026/05/28/agent-basics/</div>
+      <div>https://zhihao-ailab.github.io/knowledge-base/2026/05/28/agent-basics/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>dengzhihao525-svg</div>
+          <div>zhihao-ailab</div>
         </div>
       
       
@@ -481,6 +481,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/knowledge-base/2026/05/28/mcp-explained/" title="MCP 是什么">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MCP 是什么</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
