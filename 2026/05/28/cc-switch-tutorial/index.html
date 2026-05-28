@@ -19,23 +19,29 @@
   <meta name="author" content="zhihao-ailab">
   <meta name="keywords" content="AI, Agent, LLM, MCP, 机器学习">
   
-    <meta name="description" content="Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是">
+    <meta name="description" content="一句话介绍CC Switch 是一个专门给 AI 编程工具使用的桌面配置管理器。 它可以统一管理 Claude Code、Codex、Gemini CLI、OpenCode、OpenClaw 等工具的模型供应商配置，让你不用手动改配置文件，就能在不同 API、不同模型、不同 Key 之间快速切换。 如果你现在正在用 Claude Code，又想接入 DeepSeek、Kimi、通义、智谱、Open">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Agent 是什么">
-<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/05/28/agent-basics/index.html">
+<meta property="og:title" content="CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商">
+<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/05/28/cc-switch-tutorial/index.html">
 <meta property="og:site_name" content="AI学习笔记">
-<meta property="og:description" content="Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是">
+<meta property="og:description" content="一句话介绍CC Switch 是一个专门给 AI 编程工具使用的桌面配置管理器。 它可以统一管理 Claude Code、Codex、Gemini CLI、OpenCode、OpenClaw 等工具的模型供应商配置，让你不用手动改配置文件，就能在不同 API、不同模型、不同 Key 之间快速切换。 如果你现在正在用 Claude Code，又想接入 DeepSeek、Kimi、通义、智谱、Open">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/screenshots/main-en.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/screenshots/add-en.png">
 <meta property="article:published_time" content="2026-05-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-28T04:55:16.118Z">
+<meta property="article:modified_time" content="2026-05-28T07:36:58.819Z">
 <meta property="article:author" content="zhihao-ailab">
-<meta property="article:tag" content="AI">
-<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="CC Switch">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="MCP">
+<meta property="article:tag" content="模型切换">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/screenshots/main-en.png">
   
   
   
-  <title>Agent 是什么 - AI学习笔记</title>
+  <title>CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商 - AI学习笔记</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -304,7 +310,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Agent 是什么</span>
+            <span id="subtitle">CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商</span>
           
         </div>
 
@@ -327,7 +333,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          872 字
+          3.6k 字
         
       </span>
     
@@ -368,28 +374,149 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Agent 是什么</h1>
+            <h1 id="seo-header">CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Agent-是什么"><a href="#Agent-是什么" class="headerlink" title="Agent 是什么"></a>Agent 是什么</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。</p>
-<h2 id="核心循环"><a href="#核心循环" class="headerlink" title="核心循环"></a>核心循环</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">用户说一句话 → <span class="hljs-keyword">LLM </span>思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → <span class="hljs-keyword">LLM </span>再思考 → 下一步...<br></code></pre></td></tr></table></figure>
+                <h2 id="一句话介绍"><a href="#一句话介绍" class="headerlink" title="一句话介绍"></a>一句话介绍</h2><p>CC Switch 是一个专门给 AI 编程工具使用的桌面配置管理器。</p>
+<p>它可以统一管理 Claude Code、Codex、Gemini CLI、OpenCode、OpenClaw 等工具的模型供应商配置，让你不用手动改配置文件，就能在不同 API、不同模型、不同 Key 之间快速切换。</p>
+<p>如果你现在正在用 Claude Code，又想接入 DeepSeek、Kimi、通义、智谱、OpenRouter 或其他第三方 API，那么 CC Switch 基本就是一个必备工具。</p>
+<p>官方项目地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/farion1231/cc-switch">https://github.com/farion1231/cc-switch</a></p>
+<p>官方站点：</p>
+<p><a target="_blank" rel="noopener" href="https://ccswitch.io/">https://ccswitch.io</a></p>
+<h2 id="为什么需要-CC-Switch"><a href="#为什么需要-CC-Switch" class="headerlink" title="为什么需要 CC Switch"></a>为什么需要 CC Switch</h2><p>没有 CC Switch 的时候，切换 Claude Code 模型供应商通常要手动修改配置文件。</p>
+<p>你可能需要自己处理这些内容：</p>
+<ul>
+<li>API Key</li>
+<li>Base URL</li>
+<li>模型名称</li>
+<li>API 格式</li>
+<li>MCP 配置</li>
+<li>Skills 配置</li>
+<li>多个 CLI 工具各自不同的配置格式</li>
+</ul>
+<p>这件事最麻烦的地方不是难，而是容易乱。</p>
+<p>比如今天用官方 Claude，明天想换 DeepSeek，后天又想切到 Kimi。每切一次都要找配置文件、改字段、保存、重启、测试。如果手误写错一个字符，整个 Claude Code 就可能请求失败。</p>
+<p>CC Switch 的作用，就是把这些配置都放到一个图形界面里。你只需要添加供应商，然后点击启用。</p>
+<h2 id="CC-Switch-主界面"><a href="#CC-Switch-主界面" class="headerlink" title="CC Switch 主界面"></a>CC Switch 主界面</h2><p>下面是官方 README 里的主界面截图：</p>
+<p><img src="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/screenshots/main-en.png" srcset="/knowledge-base/img/loading.gif" lazyload alt="CC Switch 主界面"></p>
+<p>在主界面里，你可以看到已经添加的供应商配置。每一个供应商都可以单独启用、编辑、删除，也可以通过系统托盘快速切换。</p>
+<p>对 Claude Code 用户来说，最舒服的一点是：Claude Code 通常支持热切换。也就是说，你在 CC Switch 里切换供应商后，很多情况下不用重启终端就能继续使用。</p>
+<h2 id="CC-Switch-能做什么"><a href="#CC-Switch-能做什么" class="headerlink" title="CC Switch 能做什么"></a>CC Switch 能做什么</h2><p>CC Switch 的核心能力可以分成几类。</p>
+<p>第一，管理模型供应商。</p>
+<p>你可以添加多个 Provider，例如官方 Anthropic、DeepSeek、Kimi、通义、智谱、OpenRouter 或其他中转服务。每个 Provider 都可以保存自己的 API Key、Base URL 和模型配置。</p>
+<p>第二，一键切换。</p>
+<p>添加好多个供应商后，只需要点击 <code>Enable</code>，当前工具就会切换到对应配置。Claude Code 通常可以直接生效，Codex、Gemini CLI 等工具一般建议重启终端后再使用。</p>
+<p>第三，统一管理多个 AI CLI 工具。</p>
+<p>它不只服务 Claude Code，也支持 Codex、Gemini CLI、OpenCode、OpenClaw 等工具。你可以在一个界面里管理多个工具的配置。</p>
+<p>第四，管理 MCP、Prompts、Skills。</p>
+<p>如果你已经开始使用 Claude Code 的 MCP 或 Skills，CC Switch 也能帮你做可视化管理，减少手动复制和同步配置的麻烦。</p>
+<h2 id="安装-CC-Switch"><a href="#安装-CC-Switch" class="headerlink" title="安装 CC Switch"></a>安装 CC Switch</h2><p>最推荐的安装方式是从官方 GitHub Releases 下载：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/farion1231/cc-switch/releases">https://github.com/farion1231/cc-switch/releases</a></p>
+<p>Windows 用户下载 <code>.msi</code> 安装包即可。</p>
+<p>macOS 用户可以下载 <code>.dmg</code> 文件，也可以使用 Homebrew：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install --cask cc-switch<br></code></pre></td></tr></table></figure>
 
-<p>循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。</p>
-<h2 id="三个关键部件"><a href="#三个关键部件" class="headerlink" title="三个关键部件"></a>三个关键部件</h2><p><strong>LLM（大脑）</strong><br>就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。</p>
-<p><strong>工具（手）</strong><br>就是给 LLM 能调用的函数——搜文件、读网页、执行命令等。每个工具要告诉 LLM：我叫什么、我能干嘛、参数是什么。</p>
-<p><strong>循环控制（决策链）</strong><br>LLM 每一轮输出要么是”调工具”，要么是”回复用户”。调完工具后把结果塞回对话里，让 LLM 决定下一步。</p>
-<h2 id="简化版代码"><a href="#简化版代码" class="headerlink" title="简化版代码"></a>简化版代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">messages = [&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;帮我建个项目&quot;</span>&#125;]<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    response = llm.chat(messages, tools=tools)  <span class="hljs-comment"># LLM 思考</span><br>    <br>    <span class="hljs-keyword">if</span> response.has_tool_call:<br>        result = execute(response.tool_name, response.params)  <span class="hljs-comment"># 执行工具</span><br>        messages.append(&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;tool&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: result&#125;)   <span class="hljs-comment"># 结果塞回去</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(response.text)  <span class="hljs-comment"># 任务完成，回复用户</span><br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="例子：查天气-Agent"><a href="#例子：查天气-Agent" class="headerlink" title="例子：查天气 Agent"></a>例子：查天气 Agent</h2><ol>
-<li>用户：”北京今天天气怎么样”</li>
-<li>LLM 思考：”我需要调用 get_weather 工具，参数 city&#x3D;’北京’”</li>
-<li>工具返回：{“temp”: 27, “weather”: “晴”}</li>
-<li>LLM 思考：”拿到结果了，回复用户：北京今天晴，27度”</li>
-<li>结束</li>
+<p>Linux 用户可以根据自己的系统选择 <code>.deb</code>、<code>.rpm</code> 或 <code>.AppImage</code>。</p>
+<p>安装完成后，打开 CC Switch。首次启动时，它会自动检测你本机已经安装的 AI CLI 工具，比如 Claude Code、Codex 或 Gemini CLI。</p>
+<h2 id="添加第一个供应商"><a href="#添加第一个供应商" class="headerlink" title="添加第一个供应商"></a>添加第一个供应商</h2><p>打开 CC Switch 后，先在顶部选择你要管理的工具。这里以 Claude Code 为例，选择 <code>Claude</code>。</p>
+<p>然后点击右上角的 <code>+</code> 按钮，进入添加供应商页面。</p>
+<p>官方添加供应商界面如下：</p>
+<p><img src="https://raw.githubusercontent.com/farion1231/cc-switch/main/assets/screenshots/add-en.png" srcset="/knowledge-base/img/loading.gif" lazyload alt="CC Switch 添加供应商界面"></p>
+<p>添加供应商一般有两种方式。</p>
+<h2 id="方式一：使用预设供应商"><a href="#方式一：使用预设供应商" class="headerlink" title="方式一：使用预设供应商"></a>方式一：使用预设供应商</h2><p>这是最适合新手的方式。</p>
+<p>CC Switch 内置了不少常见供应商模板。你只需要在预设列表里选择对应供应商，然后填写自己的 API Key。</p>
+<p>大致流程是：</p>
+<ol>
+<li>点击右上角 <code>+</code></li>
+<li>在预设列表里选择供应商</li>
+<li>填写 API Key</li>
+<li>检查模型名称</li>
+<li>点击添加或保存</li>
 </ol>
-<h2 id="与你用的-Claude-Code-的关系"><a href="#与你用的-Claude-Code-的关系" class="headerlink" title="与你用的 Claude Code 的关系"></a>与你用的 Claude Code 的关系</h2><p>Claude Code 本身就是一个 Agent——它能读文件、写代码、执行命令，都是 LLM + 工具 + 循环这套逻辑运作的。</p>
+<p>预设的好处是 Base URL、API 格式等信息通常已经帮你填好了，不需要自己猜。</p>
+<h2 id="方式二：自定义供应商"><a href="#方式二：自定义供应商" class="headerlink" title="方式二：自定义供应商"></a>方式二：自定义供应商</h2><p>如果你使用的是第三方中转服务，或者预设里没有你的服务商，就选择自定义配置。</p>
+<p>自定义配置通常需要填写这些内容：</p>
+<ul>
+<li>名称：自己能看懂就行，比如 <code>DeepSeek-V4</code>、<code>Kimi-Claude</code>、<code>OpenRouter</code></li>
+<li>API Key：从服务商控制台复制</li>
+<li>Base URL：服务商提供的 API 地址</li>
+<li>模型名：你要使用的模型 ID</li>
+<li>API 格式：根据服务商要求选择 Anthropic 或 OpenAI 兼容格式</li>
+</ul>
+<p>这里有一个很常见的坑：Base URL 末尾不要随手加 <code>/</code>。</p>
+<p>推荐写法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://api.example.com<br></code></pre></td></tr></table></figure>
+
+<p>不推荐写法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">https://api.example.com/<br></code></pre></td></tr></table></figure>
+
+<p>有些服务会把路径拼接成双斜杠，导致请求失败。</p>
+<h2 id="启用供应商"><a href="#启用供应商" class="headerlink" title="启用供应商"></a>启用供应商</h2><p>供应商添加完成后，回到主界面。</p>
+<p>找到刚刚添加的 Provider，点击右侧的 <code>Enable</code> 或「启用」按钮。</p>
+<p>如果状态变成 <code>Active</code>，说明当前工具已经切换到这个供应商。</p>
+<p>你也可以在系统托盘里快速切换。Windows 一般在右下角，macOS 一般在顶部菜单栏。点击 CC Switch 图标后，选择对应供应商即可。</p>
+<h2 id="在-Claude-Code-里验证"><a href="#在-Claude-Code-里验证" class="headerlink" title="在 Claude Code 里验证"></a>在 Claude Code 里验证</h2><p>切换完成后，打开终端运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">claude<br></code></pre></td></tr></table></figure>
+
+<p>然后输入一句简单测试：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">你好，帮我写一个 Python 快速排序函数<br></code></pre></td></tr></table></figure>
+
+<p>如果 Claude Code 能正常回复，说明配置已经生效。</p>
+<p>如果没有生效，可以先完全关闭终端，再重新打开一次。虽然 Claude Code 通常支持热切换，但遇到环境变量、终端缓存或第三方接口兼容问题时，重启终端是最简单的排查方式。</p>
+<h2 id="常见问题排查"><a href="#常见问题排查" class="headerlink" title="常见问题排查"></a>常见问题排查</h2><h3 id="API-Key-错误"><a href="#API-Key-错误" class="headerlink" title="API Key 错误"></a>API Key 错误</h3><p>如果提示认证失败，优先检查 API Key。</p>
+<p>确认你复制的是完整 Key，没有多余空格，也没有把别的平台 Key 填到当前供应商里。</p>
+<h3 id="Base-URL-写错"><a href="#Base-URL-写错" class="headerlink" title="Base URL 写错"></a>Base URL 写错</h3><p>如果提示连接失败，重点检查 Base URL。</p>
+<p>常见问题包括：</p>
+<ul>
+<li>地址写错</li>
+<li>末尾多了 <code>/</code></li>
+<li>服务商要求特定路径但你没填</li>
+<li>当前网络无法访问该服务商</li>
+</ul>
+<h3 id="模型名不支持"><a href="#模型名不支持" class="headerlink" title="模型名不支持"></a>模型名不支持</h3><p>有些中转服务虽然兼容 Claude Code，但不一定支持所有模型名。</p>
+<p>如果模型名写错，可能会出现模型不存在、400 错误或请求失败。建议先用服务商文档里的推荐模型测试。</p>
+<h3 id="API-格式不匹配"><a href="#API-格式不匹配" class="headerlink" title="API 格式不匹配"></a>API 格式不匹配</h3><p>不同供应商可能支持不同 API 格式。有的支持 Anthropic Messages，有的支持 OpenAI Chat Completions，有的只是做了兼容转换。</p>
+<p>如果一直报错，可以尝试切换 API 格式，或者换一个该供应商明确支持 Claude Code 的模型。</p>
+<h3 id="Claude-Code-出现-400-错误"><a href="#Claude-Code-出现-400-错误" class="headerlink" title="Claude Code 出现 400 错误"></a>Claude Code 出现 400 错误</h3><p>新版 Claude Code 有时会发送某些第三方服务不兼容的参数，比如 thinking 相关参数。遇到 <code>API Error: 400</code> 时，可以尝试：</p>
+<ul>
+<li>换成 Sonnet 或 Haiku 类模型</li>
+<li>换一个供应商</li>
+<li>查看 CC Switch 官方 GitHub Discussions</li>
+<li>确认第三方 API 是否明确支持 Claude Code</li>
+</ul>
+<h2 id="进阶功能"><a href="#进阶功能" class="headerlink" title="进阶功能"></a>进阶功能</h2><p>当你把添加供应商和切换供应商跑通以后，可以继续研究 CC Switch 的进阶功能。</p>
+<h3 id="MCP-管理"><a href="#MCP-管理" class="headerlink" title="MCP 管理"></a>MCP 管理</h3><p>MCP 可以让 Claude Code 连接外部工具，比如文件系统、数据库、浏览器、GitHub 等。</p>
+<p>CC Switch 提供了 MCP 管理入口，可以用图形界面添加、编辑和同步 MCP Server，减少手动改配置的麻烦。</p>
+<h3 id="Skills-管理"><a href="#Skills-管理" class="headerlink" title="Skills 管理"></a>Skills 管理</h3><p>Claude Code 的 Skills 可以理解为给 Agent 增加特定能力包。</p>
+<p>如果你经常安装、同步、管理不同 Skills，CC Switch 的 Skills 面板会更方便。</p>
+<h3 id="Prompts-管理"><a href="#Prompts-管理" class="headerlink" title="Prompts 管理"></a>Prompts 管理</h3><p>Prompts 功能适合保存一些常用提示词，比如代码审查、需求分析、Bug 排查、文档生成等。</p>
+<p>你可以把常用 Prompt 做成预设，减少重复输入。</p>
+<h2 id="推荐学习顺序"><a href="#推荐学习顺序" class="headerlink" title="推荐学习顺序"></a>推荐学习顺序</h2><p>如果你是第一次接触 CC Switch，不建议一上来就研究所有功能。</p>
+<p>更推荐按这个顺序：</p>
+<ol>
+<li>安装 CC Switch</li>
+<li>添加一个供应商</li>
+<li>启用供应商</li>
+<li>在 Claude Code 里测试</li>
+<li>再添加第二个供应商</li>
+<li>学会在多个供应商之间切换</li>
+<li>最后再研究 MCP、Skills、Prompts</li>
+</ol>
+<p>先把最小闭环跑通，再慢慢扩展。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CC Switch 解决的是一个非常实际的问题：AI 编程工具越来越多，模型供应商也越来越多，如果每个工具都手动维护配置，很快就会混乱。</p>
+<p>它把 Claude Code、Codex、Gemini CLI 等工具的 Provider、API Key、Base URL、MCP、Skills 统一放到一个桌面界面里，让切换模型变成一次点击。</p>
+<p>对于 Claude Code 用户来说，它尤其适合这几类场景：</p>
+<ul>
+<li>想接入第三方 API</li>
+<li>想降低模型使用成本</li>
+<li>想在多个模型之间来回切换</li>
+<li>想统一管理 MCP 和 Skills</li>
+<li>不想手动改配置文件</li>
+</ul>
+<p>最后提醒一句：API Key 一定不要发到群里、截图里或公开文章里。如果不小心泄露，建议立刻去对应平台重置。</p>
 
                 
               </div>
@@ -408,7 +535,7 @@
     
       <span class="category-chain">
         
-  <a href="/knowledge-base/categories/AI%E5%9F%BA%E7%A1%80/" class="category-chain-item">AI基础</a>
+  <a href="/knowledge-base/categories/AI%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" class="category-chain-item">AI工具学习</a>
   
   
 
@@ -423,9 +550,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/knowledge-base/tags/AI/" class="print-no-link">#AI</a>
+        <a href="/knowledge-base/tags/AI%E7%BC%96%E7%A8%8B/" class="print-no-link">#AI编程</a>
       
-        <a href="/knowledge-base/tags/Agent/" class="print-no-link">#Agent</a>
+        <a href="/knowledge-base/tags/CC-Switch/" class="print-no-link">#CC Switch</a>
+      
+        <a href="/knowledge-base/tags/Claude-Code/" class="print-no-link">#Claude Code</a>
+      
+        <a href="/knowledge-base/tags/%E6%A8%A1%E5%9E%8B%E5%88%87%E6%8D%A2/" class="print-no-link">#模型切换</a>
+      
+        <a href="/knowledge-base/tags/MCP/" class="print-no-link">#MCP</a>
       
     </div>
   
@@ -437,8 +570,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Agent 是什么</div>
-      <div>https://zhihao-ailab.github.io/knowledge-base/2026/05/28/agent-basics/</div>
+      <div>CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商</div>
+      <div>https://zhihao-ailab.github.io/knowledge-base/2026/05/28/cc-switch-tutorial/</div>
     </div>
     <div class="license-meta">
       
@@ -482,21 +615,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/knowledge-base/2026/05/28/mcp-explained/" title="MCP 是什么">
+                      <a href="/knowledge-base/2026/05/28/agent-basics/" title="Agent 是什么">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MCP 是什么</span>
+                        <span class="hidden-mobile">Agent 是什么</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/knowledge-base/2026/05/28/cc-switch-tutorial/" title="CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商">
-                        <span class="hidden-mobile">CC Switch 完整入门教程：一键切换 Claude Code 的模型供应商</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
