@@ -31,6 +31,33 @@
   
   
   <entry>
+    <title>Gateway 和 MCP 的区别</title>
+    <link href="/knowledge-base/2026/05/28/gateway-vs-mcp/"/>
+    <url>/knowledge-base/2026/05/28/gateway-vs-mcp/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Gateway-和-MCP-的区别"><a href="#Gateway-和-MCP-的区别" class="headerlink" title="Gateway 和 MCP 的区别"></a>Gateway 和 MCP 的区别</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>MCP 是协议标准，Gateway 是运行中的服务。它们不是同一个东西。</p><h2 id="角色不同"><a href="#角色不同" class="headerlink" title="角色不同"></a>角色不同</h2><table><thead><tr><th></th><th>MCP</th><th>Gateway</th></tr></thead><tbody><tr><td>是什么</td><td>协议标准</td><td>一个运行中的服务进程</td></tr><tr><td>负责</td><td>定义”工具该怎么描述、该怎么调用”</td><td>定义”消息从哪来、到哪去、谁处理”</td></tr><tr><td>类比</td><td>USB-C 接口规范</td><td>路由器</td></tr></tbody></table><h2 id="打个比方"><a href="#打个比方" class="headerlink" title="打个比方"></a>打个比方</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs abnf">你说话 → 音箱听到 → 路由器分发指令 → 调不同的智能家居设备<br><br>你的声音         <span class="hljs-operator">=</span> 各种消息渠道（飞书、WhatsApp...）<br>路由器/分发      <span class="hljs-operator">=</span> Gateway（决定<span class="hljs-string">&quot;这条消息谁处理&quot;</span>）<br>USB-C 接口      <span class="hljs-operator">=</span> MCP（决定<span class="hljs-string">&quot;设备之间怎么通信&quot;</span>）<br>智能家居设备     <span class="hljs-operator">=</span> 各种工具（查天气、发邮件、读数据库...）<br></code></pre></td></tr></table></figure><h2 id="在-OpenClaw-中的关系"><a href="#在-OpenClaw-中的关系" class="headerlink" title="在 OpenClaw 中的关系"></a>在 OpenClaw 中的关系</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sqf">飞书用户发消息<br>     ↓<br>Gateway 收到 → 判断<span class="hljs-string">&quot;这是飞书渠道来的，路由到 agent A&quot;</span><br>     ↓<br><span class="hljs-built_in">agent</span> A 思考 → 决定调工具<span class="hljs-string">&quot;查天气&quot;</span><br>     ↓<br>通过 MCP 协议 → 调天气 MCP Server → 返回结果<br>     ↓<br><span class="hljs-built_in">agent</span> A 生成回复 → Gateway 把回复送回飞书<br></code></pre></td></tr></table></figure><h2 id="Gateway-为什么比-MCP-复杂"><a href="#Gateway-为什么比-MCP-复杂" class="headerlink" title="Gateway 为什么比 MCP 复杂"></a>Gateway 为什么比 MCP 复杂</h2><p>MCP 只管工具格式。Gateway 还要管：</p><ul><li>多渠道适配（飞书、WhatsApp、Telegram 格式都不同）</li><li>会话状态管理（谁在跟哪个 agent 聊天）</li><li>可靠性和去重</li><li>安全和权限控制</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>AI基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+      <tag>Agent</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Cursor小白入门指南</title>
     <link href="/knowledge-base/2026/05/28/cursor-beginner-guide/"/>
     <url>/knowledge-base/2026/05/28/cursor-beginner-guide/</url>
@@ -54,33 +81,6 @@
       <tag>AI编程</tag>
       
       <tag>新手教程</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Gateway 和 MCP 的区别</title>
-    <link href="/knowledge-base/2026/05/28/gateway-vs-mcp/"/>
-    <url>/knowledge-base/2026/05/28/gateway-vs-mcp/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Gateway-和-MCP-的区别"><a href="#Gateway-和-MCP-的区别" class="headerlink" title="Gateway 和 MCP 的区别"></a>Gateway 和 MCP 的区别</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>MCP 是协议标准，Gateway 是运行中的服务。它们不是同一个东西。</p><h2 id="角色不同"><a href="#角色不同" class="headerlink" title="角色不同"></a>角色不同</h2><table><thead><tr><th></th><th>MCP</th><th>Gateway</th></tr></thead><tbody><tr><td>是什么</td><td>协议标准</td><td>一个运行中的服务进程</td></tr><tr><td>负责</td><td>定义”工具该怎么描述、该怎么调用”</td><td>定义”消息从哪来、到哪去、谁处理”</td></tr><tr><td>类比</td><td>USB-C 接口规范</td><td>路由器</td></tr></tbody></table><h2 id="打个比方"><a href="#打个比方" class="headerlink" title="打个比方"></a>打个比方</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs abnf">你说话 → 音箱听到 → 路由器分发指令 → 调不同的智能家居设备<br><br>你的声音         <span class="hljs-operator">=</span> 各种消息渠道（飞书、WhatsApp...）<br>路由器/分发      <span class="hljs-operator">=</span> Gateway（决定<span class="hljs-string">&quot;这条消息谁处理&quot;</span>）<br>USB-C 接口      <span class="hljs-operator">=</span> MCP（决定<span class="hljs-string">&quot;设备之间怎么通信&quot;</span>）<br>智能家居设备     <span class="hljs-operator">=</span> 各种工具（查天气、发邮件、读数据库...）<br></code></pre></td></tr></table></figure><h2 id="在-OpenClaw-中的关系"><a href="#在-OpenClaw-中的关系" class="headerlink" title="在 OpenClaw 中的关系"></a>在 OpenClaw 中的关系</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sqf">飞书用户发消息<br>     ↓<br>Gateway 收到 → 判断<span class="hljs-string">&quot;这是飞书渠道来的，路由到 agent A&quot;</span><br>     ↓<br><span class="hljs-built_in">agent</span> A 思考 → 决定调工具<span class="hljs-string">&quot;查天气&quot;</span><br>     ↓<br>通过 MCP 协议 → 调天气 MCP Server → 返回结果<br>     ↓<br><span class="hljs-built_in">agent</span> A 生成回复 → Gateway 把回复送回飞书<br></code></pre></td></tr></table></figure><h2 id="Gateway-为什么比-MCP-复杂"><a href="#Gateway-为什么比-MCP-复杂" class="headerlink" title="Gateway 为什么比 MCP 复杂"></a>Gateway 为什么比 MCP 复杂</h2><p>MCP 只管工具格式。Gateway 还要管：</p><ul><li>多渠道适配（飞书、WhatsApp、Telegram 格式都不同）</li><li>会话状态管理（谁在跟哪个 agent 聊天）</li><li>可靠性和去重</li><li>安全和权限控制</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>AI基础</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>AI</tag>
-      
-      <tag>Agent</tag>
       
     </tags>
     
