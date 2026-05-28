@@ -578,6 +578,96 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dengzhihao525-svg.github.io/knowledge-base/2026/05/28/token-explained/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/knowledge-base/images/avatar.gif">
+      <meta itemprop="name" content="dengzhihao525-svg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AI学习笔记">
+      <meta itemprop="description" content="记录学习AI与Agent搭建过程中的知识点">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | AI学习笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/knowledge-base/2026/05/28/token-explained/" class="post-title-link" itemprop="url">Token 怎么消耗</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-28 00:00:00 / 修改时间：12:55:16" itemprop="dateCreated datePublished" datetime="2026-05-28T00:00:00+08:00">2026-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/knowledge-base/categories/AI%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">AI基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Token-怎么消耗"><a href="#Token-怎么消耗" class="headerlink" title="Token 怎么消耗"></a>Token 怎么消耗</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>每次调 LLM API，按输入和输出的 token 数量计费。</p>
+<h2 id="Token-是什么"><a href="#Token-是什么" class="headerlink" title="Token 是什么"></a>Token 是什么</h2><p>Token 是 LLM 处理文本的最小单位。粗略算：1 个中文字 ≈ 1-2 个 token，1 个英文单词 ≈ 1-3 个 token。</p>
+<h2 id="Agent-的-Token-消耗"><a href="#Agent-的-Token-消耗" class="headerlink" title="Agent 的 Token 消耗"></a>Agent 的 Token 消耗</h2><p>Agent 每轮思考都要调一次 API，上下文中包含系统提示词、工具定义、对话历史等：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">你: &quot;帮我查一下北京天气&quot;</span><br><span class="line"></span><br><span class="line">第1轮 → LLM 思考 → &quot;我该调用 get_weather&quot;</span><br><span class="line">        → ~200 input tokens + ~100 output tokens</span><br><span class="line"></span><br><span class="line">工具返回 → &quot;北京晴，27度&quot;</span><br><span class="line"></span><br><span class="line">第2轮 → LLM 思考 → &quot;拿到结果了，总结回复用户&quot;</span><br><span class="line">        → ~300 input tokens + ~150 output tokens</span><br><span class="line"></span><br><span class="line">总消耗: ~750 tokens</span><br></pre></td></tr></table></figure>
+
+<h2 id="省钱技巧"><a href="#省钱技巧" class="headerlink" title="省钱技巧"></a>省钱技巧</h2><ul>
+<li><strong>用小模型</strong> — Haiku 比 Opus 便宜几十倍</li>
+<li><strong>限制循环轮次</strong> — 设上限防止无限循环烧钱</li>
+<li><strong>精简上下文</strong> — 对话历史越短越省钱</li>
+<li><strong>Prompt Caching</strong> — 缓存重复的 system prompt，省 90% input 费</li>
+</ul>
+<h2 id="API-Key-怎么连接"><a href="#API-Key-怎么连接" class="headerlink" title="API Key 怎么连接"></a>API Key 怎么连接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你的程序 → 读 .env 文件拿 key → SDK 带上 key 发 HTTPS 请求 </span><br><span class="line">→ Anthropic 服务器验证 → 跑模型 → 扣费 → 返回结果</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://dengzhihao525-svg.github.io/knowledge-base/2026/05/28/sdk-explained/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -662,96 +752,6 @@
 <td>调飞书 API</td>
 </tr>
 </tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://dengzhihao525-svg.github.io/knowledge-base/2026/05/28/token-explained/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/knowledge-base/images/avatar.gif">
-      <meta itemprop="name" content="dengzhihao525-svg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AI学习笔记">
-      <meta itemprop="description" content="记录学习AI与Agent搭建过程中的知识点">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | AI学习笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/knowledge-base/2026/05/28/token-explained/" class="post-title-link" itemprop="url">Token 怎么消耗</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-28 00:00:00 / 修改时间：12:55:16" itemprop="dateCreated datePublished" datetime="2026-05-28T00:00:00+08:00">2026-05-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/knowledge-base/categories/AI%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">AI基础</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Token-怎么消耗"><a href="#Token-怎么消耗" class="headerlink" title="Token 怎么消耗"></a>Token 怎么消耗</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>每次调 LLM API，按输入和输出的 token 数量计费。</p>
-<h2 id="Token-是什么"><a href="#Token-是什么" class="headerlink" title="Token 是什么"></a>Token 是什么</h2><p>Token 是 LLM 处理文本的最小单位。粗略算：1 个中文字 ≈ 1-2 个 token，1 个英文单词 ≈ 1-3 个 token。</p>
-<h2 id="Agent-的-Token-消耗"><a href="#Agent-的-Token-消耗" class="headerlink" title="Agent 的 Token 消耗"></a>Agent 的 Token 消耗</h2><p>Agent 每轮思考都要调一次 API，上下文中包含系统提示词、工具定义、对话历史等：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">你: &quot;帮我查一下北京天气&quot;</span><br><span class="line"></span><br><span class="line">第1轮 → LLM 思考 → &quot;我该调用 get_weather&quot;</span><br><span class="line">        → ~200 input tokens + ~100 output tokens</span><br><span class="line"></span><br><span class="line">工具返回 → &quot;北京晴，27度&quot;</span><br><span class="line"></span><br><span class="line">第2轮 → LLM 思考 → &quot;拿到结果了，总结回复用户&quot;</span><br><span class="line">        → ~300 input tokens + ~150 output tokens</span><br><span class="line"></span><br><span class="line">总消耗: ~750 tokens</span><br></pre></td></tr></table></figure>
-
-<h2 id="省钱技巧"><a href="#省钱技巧" class="headerlink" title="省钱技巧"></a>省钱技巧</h2><ul>
-<li><strong>用小模型</strong> — Haiku 比 Opus 便宜几十倍</li>
-<li><strong>限制循环轮次</strong> — 设上限防止无限循环烧钱</li>
-<li><strong>精简上下文</strong> — 对话历史越短越省钱</li>
-<li><strong>Prompt Caching</strong> — 缓存重复的 system prompt，省 90% input 费</li>
-</ul>
-<h2 id="API-Key-怎么连接"><a href="#API-Key-怎么连接" class="headerlink" title="API Key 怎么连接"></a>API Key 怎么连接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你的程序 → 读 .env 文件拿 key → SDK 带上 key 发 HTTPS 请求 </span><br><span class="line">→ Anthropic 服务器验证 → 跑模型 → 扣费 → 返回结果</span><br></pre></td></tr></table></figure>
 
       
     </div>
