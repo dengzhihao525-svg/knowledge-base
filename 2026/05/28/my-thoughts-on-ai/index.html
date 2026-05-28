@@ -19,23 +19,24 @@
   <meta name="author" content="zhihao-ailab">
   <meta name="keywords" content="AI, Agent, LLM, MCP, 机器学习">
   
-    <meta name="description" content="MCP 是什么一句话MCP &#x3D; Model Context Protocol（模型上下文协议），是工具调用的 USB-C 标准。 为什么需要 MCP没有 MCP：每个工具接入方式都不一样，你得为每个工具单独写对接代码。 有了 MCP：所有工具都用同一套协议，LLM 通过 MCP 统一调用： 123LLM ──MCP──→ GitHub MCP Server ──→ 操作 GitHubLL">
+    <meta name="description" content="从开始学 AI 到现在，有一些想法慢慢清晰了。 不要被名词吓住刚开始我听 SDK、API、MCP、Gateway、Agent 这些词，感觉每个都很难。但一个个拆开看，其实就是”工具箱”、”通信管道”、”统一接口”、”消息路由”、”自动循环”。每个概念背后都是解决一个具体问题的，没有人一开始就全懂。 Agent 不是魔法学之前我以为 Agent 是什么高深的东西。但它的核心就是个循环：LLM 思考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MCP 是什么">
-<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/05/28/mcp-explained/index.html">
+<meta property="og:title" content="我对AI的几点思考">
+<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/05/28/my-thoughts-on-ai/index.html">
 <meta property="og:site_name" content="AI学习笔记">
-<meta property="og:description" content="MCP 是什么一句话MCP &#x3D; Model Context Protocol（模型上下文协议），是工具调用的 USB-C 标准。 为什么需要 MCP没有 MCP：每个工具接入方式都不一样，你得为每个工具单独写对接代码。 有了 MCP：所有工具都用同一套协议，LLM 通过 MCP 统一调用： 123LLM ──MCP──→ GitHub MCP Server ──→ 操作 GitHubLL">
+<meta property="og:description" content="从开始学 AI 到现在，有一些想法慢慢清晰了。 不要被名词吓住刚开始我听 SDK、API、MCP、Gateway、Agent 这些词，感觉每个都很难。但一个个拆开看，其实就是”工具箱”、”通信管道”、”统一接口”、”消息路由”、”自动循环”。每个概念背后都是解决一个具体问题的，没有人一开始就全懂。 Agent 不是魔法学之前我以为 Agent 是什么高深的东西。但它的核心就是个循环：LLM 思考">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-28T04:55:16.163Z">
+<meta property="article:modified_time" content="2026-05-28T06:32:11.078Z">
 <meta property="article:author" content="zhihao-ailab">
 <meta property="article:tag" content="AI">
-<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="学习方法">
+<meta property="article:tag" content="思考">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>MCP 是什么 - AI学习笔记</title>
+  <title>我对AI的几点思考 - AI学习笔记</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -304,7 +305,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">MCP 是什么</span>
+            <span id="subtitle">我对AI的几点思考</span>
           
         </div>
 
@@ -327,7 +328,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          430 字
+          623 字
         
       </span>
     
@@ -368,42 +369,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">MCP 是什么</h1>
+            <h1 id="seo-header">我对AI的几点思考</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="MCP-是什么"><a href="#MCP-是什么" class="headerlink" title="MCP 是什么"></a>MCP 是什么</h1><h2 id="一句话"><a href="#一句话" class="headerlink" title="一句话"></a>一句话</h2><p>MCP &#x3D; Model Context Protocol（模型上下文协议），是工具调用的 USB-C 标准。</p>
-<h2 id="为什么需要-MCP"><a href="#为什么需要-MCP" class="headerlink" title="为什么需要 MCP"></a>为什么需要 MCP</h2><p><strong>没有 MCP</strong>：每个工具接入方式都不一样，你得为每个工具单独写对接代码。</p>
-<p><strong>有了 MCP</strong>：所有工具都用同一套协议，LLM 通过 MCP 统一调用：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino">LLM ──MCP──→ GitHub MCP <span class="hljs-built_in">Server</span> ──→ 操作 GitHub<br>LLM ──MCP──→ 飞书 MCP <span class="hljs-built_in">Server</span>  ──→ 操作飞书<br>LLM ──MCP──→ 数据库 MCP <span class="hljs-built_in">Server</span> ──→ 操作数据库<br></code></pre></td></tr></table></figure>
-
-<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>MCP Server 就是一个小程序，定义了一套 LLM 能懂的”我有哪些功能、参数是什么”，LLM 发请求过来，它执行完返回结果。</p>
-<h2 id="MCP-和-Gateway-的区别"><a href="#MCP-和-Gateway-的区别" class="headerlink" title="MCP 和 Gateway 的区别"></a>MCP 和 Gateway 的区别</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>MCP</th>
-<th>Gateway</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>是什么</td>
-<td>协议标准</td>
-<td>运行中的服务进程</td>
-</tr>
-<tr>
-<td>管什么</td>
-<td>工具调用格式</td>
-<td>消息路由和分发</td>
-</tr>
-<tr>
-<td>类比</td>
-<td>USB-C 接口规范</td>
-<td>路由器</td>
-</tr>
-</tbody></table>
-<p>它们是上下层关系：Gateway 在上层管”谁的请求、交给谁、回给谁”，MCP 在下层管”工具怎么调、参数怎么传、结果怎么返回”。</p>
+                <p>从开始学 AI 到现在，有一些想法慢慢清晰了。</p>
+<h2 id="不要被名词吓住"><a href="#不要被名词吓住" class="headerlink" title="不要被名词吓住"></a>不要被名词吓住</h2><p>刚开始我听 SDK、API、MCP、Gateway、Agent 这些词，感觉每个都很难。但一个个拆开看，其实就是”工具箱”、”通信管道”、”统一接口”、”消息路由”、”自动循环”。每个概念背后都是解决一个具体问题的，没有人一开始就全懂。</p>
+<h2 id="Agent-不是魔法"><a href="#Agent-不是魔法" class="headerlink" title="Agent 不是魔法"></a>Agent 不是魔法</h2><p>学之前我以为 Agent 是什么高深的东西。但它的核心就是个循环：<strong>LLM 思考 → 调工具 → 拿结果 → 再思考 → 回复</strong>。Claude Code 是 Agent，Cursor 的 Agent 模式也是 Agent，本质上都是同一套逻辑套了不同的界面。</p>
+<p>理解了这个循环，剩下的就是”它能调哪些工具”的问题。</p>
+<h2 id="工具比模型更重要"><a href="#工具比模型更重要" class="headerlink" title="工具比模型更重要"></a>工具比模型更重要</h2><p>模型本身只能”想”，不能”做”。真正让 AI 有用的，是它背后的工具链条——能读写文件、能搜资料、能调 API、能执行命令。模型是大脑，工具是手。一个聪明的大脑没有手，什么也干不了。</p>
+<h2 id="从用-AI-到驾驭-AI"><a href="#从用-AI-到驾驭-AI" class="headerlink" title="从用 AI 到驾驭 AI"></a>从用 AI 到驾驭 AI</h2><p>一开始我是”跟 AI 聊天”。慢慢变成”让 AI 帮我做事”。现在在想的是”怎么让 AI 变成一个可以独立运行的系统”。</p>
+<p>这个过程有点像：先学会开车，再学会修车，最后自己造车。每个阶段需要的技能不一样，但都在往上走。</p>
+<h2 id="记下来比看懂更重要"><a href="#记下来比看懂更重要" class="headerlink" title="记下来比看懂更重要"></a>记下来比看懂更重要</h2><p>我建这个知识库的初衷也是这个——听懂一个东西不难，但过两周就忘了。写下来、用自己的话重新组织一遍，这个知识点才真正变成自己的。这也是为什么每篇文章我都尽量用通俗的例子来解释，不是为了别人看，是为了自己以后看的时候还能懂。</p>
+<hr>
+<p><em>还会继续想，继续写。</em></p>
 
                 
               </div>
@@ -422,7 +402,7 @@
     
       <span class="category-chain">
         
-  <a href="/knowledge-base/categories/AI%E5%9F%BA%E7%A1%80/" class="category-chain-item">AI基础</a>
+  <a href="/knowledge-base/categories/AI%E9%9A%8F%E6%83%B3/" class="category-chain-item">AI随想</a>
   
   
 
@@ -439,7 +419,9 @@
       
         <a href="/knowledge-base/tags/AI/" class="print-no-link">#AI</a>
       
-        <a href="/knowledge-base/tags/Agent/" class="print-no-link">#Agent</a>
+        <a href="/knowledge-base/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="print-no-link">#学习方法</a>
+      
+        <a href="/knowledge-base/tags/%E6%80%9D%E8%80%83/" class="print-no-link">#思考</a>
       
     </div>
   
@@ -451,8 +433,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MCP 是什么</div>
-      <div>https://zhihao-ailab.github.io/knowledge-base/2026/05/28/mcp-explained/</div>
+      <div>我对AI的几点思考</div>
+      <div>https://zhihao-ailab.github.io/knowledge-base/2026/05/28/my-thoughts-on-ai/</div>
     </div>
     <div class="license-meta">
       
@@ -496,9 +478,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/knowledge-base/2026/05/28/my-thoughts-on-ai/" title="我对AI的几点思考">
+                      <a href="/knowledge-base/2026/05/28/cursor-beginner-guide/" title="Cursor小白入门指南">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">我对AI的几点思考</span>
+                        <span class="hidden-mobile">Cursor小白入门指南</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -506,8 +488,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/knowledge-base/2026/05/28/sdk-explained/" title="SDK 是什么">
-                        <span class="hidden-mobile">SDK 是什么</span>
+                      <a href="/knowledge-base/2026/05/28/mcp-explained/" title="MCP 是什么">
+                        <span class="hidden-mobile">MCP 是什么</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

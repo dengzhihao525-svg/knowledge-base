@@ -332,15 +332,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/knowledge-base/2026/05/28/gateway-vs-mcp/" target="_self">
-          Gateway 和 MCP 的区别
+        <a href="/knowledge-base/2026/05/28/agent-basics/" target="_self">
+          Agent 是什么
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/gateway-vs-mcp/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/agent-basics/" target="_self">
         <div>
-          Gateway 和 MCP 的区别一句话MCP 是协议标准，Gateway 是运行中的服务。它们不是同一个东西。 角色不同    MCP Gateway    是什么 协议标准 一个运行中的服务进程   负责 定义”工具该怎么描述、该怎么调用” 定义”消息从哪来、到哪去、谁处理”   类比 USB-C 接口规范 路由器   打个比方123456你说话 → 音箱听到 → 路由器分发指令 → 调不同的
+          Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是
         </div>
       </a>
 
@@ -462,6 +462,71 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/knowledge-base/2026/05/28/my-thoughts-on-ai/" target="_self">
+          我对AI的几点思考
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/my-thoughts-on-ai/" target="_self">
+        <div>
+          从开始学 AI 到现在，有一些想法慢慢清晰了。 不要被名词吓住刚开始我听 SDK、API、MCP、Gateway、Agent 这些词，感觉每个都很难。但一个个拆开看，其实就是”工具箱”、”通信管道”、”统一接口”、”消息路由”、”自动循环”。每个概念背后都是解决一个具体问题的，没有人一开始就全懂。 Agent 不是魔法学之前我以为 Agent 是什么高深的东西。但它的核心就是个循环：LLM 思考
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-05-28 00:00" pubdate>
+              2026-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/knowledge-base/categories/AI%E9%9A%8F%E6%83%B3/" class="category-chain-item">AI随想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/knowledge-base/tags/AI/">#AI</a>
+            
+              <a href="/knowledge-base/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">#学习方法</a>
+            
+              <a href="/knowledge-base/tags/%E6%80%9D%E8%80%83/">#思考</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/knowledge-base/2026/05/28/mcp-explained/" target="_self">
           MCP 是什么
         </a>
@@ -525,15 +590,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/knowledge-base/2026/05/28/agent-basics/" target="_self">
-          Agent 是什么
+        <a href="/knowledge-base/2026/05/28/sdk-explained/" target="_self">
+          SDK 是什么
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/agent-basics/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/sdk-explained/" target="_self">
         <div>
-          Agent 是什么一句话Agent &#x3D; LLM（大脑）+ 工具（手）+ 循环（决策链）。 核心循环1用户说一句话 → LLM 思考 → 决定要用什么工具 → 执行工具 → 拿到结果 → LLM 再思考 → 下一步...  循环一直跑，直到 LLM 觉得”任务完成了，可以回复用户”。 三个关键部件LLM（大脑）就是大模型本身。它负责理解你的意图、拆解任务、决定下一步做什么。 工具（手）就是
+          SDK 是什么一句话SDK &#x3D; Software Development Kit（软件开发工具包），就是官方帮你写好的轮子。 为什么需要 SDK没有 SDK 时，你得自己发 HTTP 请求、管理连接、处理重试、处理错误： 12345678import requestsimport jsonresponse = requests.post(    &quot;https://api.ant
         </div>
       </a>
 
@@ -588,15 +653,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/knowledge-base/2026/05/28/sdk-explained/" target="_self">
-          SDK 是什么
+        <a href="/knowledge-base/2026/05/28/gateway-vs-mcp/" target="_self">
+          Gateway 和 MCP 的区别
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/sdk-explained/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/knowledge-base/2026/05/28/gateway-vs-mcp/" target="_self">
         <div>
-          SDK 是什么一句话SDK &#x3D; Software Development Kit（软件开发工具包），就是官方帮你写好的轮子。 为什么需要 SDK没有 SDK 时，你得自己发 HTTP 请求、管理连接、处理重试、处理错误： 12345678import requestsimport jsonresponse = requests.post(    &quot;https://api.ant
+          Gateway 和 MCP 的区别一句话MCP 是协议标准，Gateway 是运行中的服务。它们不是同一个东西。 角色不同    MCP Gateway    是什么 协议标准 一个运行中的服务进程   负责 定义”工具该怎么描述、该怎么调用” 定义”消息从哪来、到哪去、谁处理”   类比 USB-C 接口规范 路由器   打个比方123456你说话 → 音箱听到 → 路由器分发指令 → 调不同的
         </div>
       </a>
 
