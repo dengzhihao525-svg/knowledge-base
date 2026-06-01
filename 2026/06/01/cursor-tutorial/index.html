@@ -19,25 +19,21 @@
   <meta name="author" content="zhihao-ailab">
   <meta name="keywords" content="AI, Agent, LLM, MCP, 机器学习">
   
-    <meta name="description" content="一、Cursor 是什么Cursor 是一个内置了 AI 助手的代码编辑器。 它基于微软的 VS Code 做了二次开发，所以 VS Code 的基本功能它全都有——文件管理、代码高亮、终端、Git 集成等等。不一样的地方是，Cursor 直接把 AI 聊天、代码补全、自动编程这些功能嵌到了编辑器里。 你可以把它理解为：VS Code 的界面 + 一个随时听你指挥的 AI 程序员。 这个 AI 背">
+    <meta name="description" content="一、Cursor 是什么Cursor 是一个内置了 AI 助手的代码编辑器。 简单来说，Cursor 长得跟 VS Code 一模一样——有文件列表、代码编辑区、终端、Git 功能等等。唯一不一样的是，Cursor 直接把 AI 功能嵌到了编辑器里，你不用在 ChatGPT 和编辑器之间来回切换。 你可以这样理解：VS Code 的界面 + 一个随时听你指挥的 AI 程序员。 这个 AI 背后用的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cursor 使用教程：从下载到上手">
 <meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/06/01/cursor-tutorial/index.html">
 <meta property="og:site_name" content="AI学习笔记">
-<meta property="og:description" content="一、Cursor 是什么Cursor 是一个内置了 AI 助手的代码编辑器。 它基于微软的 VS Code 做了二次开发，所以 VS Code 的基本功能它全都有——文件管理、代码高亮、终端、Git 集成等等。不一样的地方是，Cursor 直接把 AI 聊天、代码补全、自动编程这些功能嵌到了编辑器里。 你可以把它理解为：VS Code 的界面 + 一个随时听你指挥的 AI 程序员。 这个 AI 背">
+<meta property="og:description" content="一、Cursor 是什么Cursor 是一个内置了 AI 助手的代码编辑器。 简单来说，Cursor 长得跟 VS Code 一模一样——有文件列表、代码编辑区、终端、Git 功能等等。唯一不一样的是，Cursor 直接把 AI 功能嵌到了编辑器里，你不用在 ChatGPT 和编辑器之间来回切换。 你可以这样理解：VS Code 的界面 + 一个随时听你指挥的 AI 程序员。 这个 AI 背后用的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zhihao-ailab.github.io/knowledge-base/img/cursor-tutorial/cursor-hero.jpg">
-<meta property="og:image" content="https://zhihao-ailab.github.io/knowledge-base/img/cursor-tutorial/cursor-agent.jpg">
-<meta property="og:image" content="https://zhihao-ailab.github.io/knowledge-base/img/cursor-tutorial/cursor-tab.jpg">
 <meta property="article:published_time" content="2026-05-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-01T02:41:16.859Z">
+<meta property="article:modified_time" content="2026-06-01T02:55:22.861Z">
 <meta property="article:author" content="zhihao-ailab">
 <meta property="article:tag" content="AI编程">
 <meta property="article:tag" content="Agent">
 <meta property="article:tag" content="Cursor">
 <meta property="article:tag" content="新手教程">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zhihao-ailab.github.io/knowledge-base/img/cursor-tutorial/cursor-hero.jpg">
   
   
   
@@ -333,7 +329,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.5k 字
         
       </span>
     
@@ -393,132 +389,140 @@
               <div class="markdown-body">
                 
                 <h2 id="一、Cursor-是什么"><a href="#一、Cursor-是什么" class="headerlink" title="一、Cursor 是什么"></a>一、Cursor 是什么</h2><p><strong>Cursor 是一个内置了 AI 助手的代码编辑器。</strong></p>
-<p>它基于微软的 VS Code 做了二次开发，所以 VS Code 的基本功能它全都有——文件管理、代码高亮、终端、Git 集成等等。不一样的地方是，Cursor 直接把 AI 聊天、代码补全、自动编程这些功能嵌到了编辑器里。</p>
-<p>你可以把它理解为：<strong>VS Code 的界面 + 一个随时听你指挥的 AI 程序员。</strong></p>
-<p>这个 AI 背后可以对接各种大模型，包括 Claude、GPT、Gemini 等。你选择哪个模型，它就用哪个来帮你写代码、改代码、回答技术问题。</p>
+<p>简单来说，Cursor 长得跟 VS Code 一模一样——有文件列表、代码编辑区、终端、Git 功能等等。唯一不一样的是，Cursor 直接把 AI 功能嵌到了编辑器里，你不用在 ChatGPT 和编辑器之间来回切换。</p>
+<p>你可以这样理解：<strong>VS Code 的界面 + 一个随时听你指挥的 AI 程序员。</strong></p>
+<p>这个 AI 背后用的是 Claude、GPT 这些大模型。你选哪个模型，它就用哪个来帮你写代码、改代码、回答技术问题。</p>
 <hr>
-<h2 id="二、下载与安装"><a href="#二、下载与安装" class="headerlink" title="二、下载与安装"></a>二、下载与安装</h2><h3 id="步骤-1：去官网下载"><a href="#步骤-1：去官网下载" class="headerlink" title="步骤 1：去官网下载"></a>步骤 1：去官网下载</h3><p>打开浏览器，访问 <strong><a target="_blank" rel="noopener" href="https://cursor.com/">cursor.com</a></strong>，首页上有一个很显眼的 <strong>“Download”</strong> 按钮。</p>
-<p>它会自动识别你的操作系统（macOS &#x2F; Windows &#x2F; Linux），直接下载对应版本。你也可以手动选择其他系统的安装包。</p>
+<h2 id="二、下载与安装"><a href="#二、下载与安装" class="headerlink" title="二、下载与安装"></a>二、下载与安装</h2><h3 id="步骤-1：去官网下载"><a href="#步骤-1：去官网下载" class="headerlink" title="步骤 1：去官网下载"></a>步骤 1：去官网下载</h3><p>打开浏览器，访问 <strong><a target="_blank" rel="noopener" href="https://cursor.com/">cursor.com</a></strong>，一进首页就能看到一个醒目的 <strong>“Download”</strong> 按钮，点它。</p>
+<p>页面会自动识别你的系统（Windows &#x2F; macOS &#x2F; Linux）并下载对应的安装包。如果自动下载不符合你的需求，也可以手动选择其他系统的版本。</p>
 <h3 id="步骤-2：安装"><a href="#步骤-2：安装" class="headerlink" title="步骤 2：安装"></a>步骤 2：安装</h3><ul>
-<li><strong>macOS</strong>：下载的是一个 <code>.dmg</code> 文件，双击打开，把 Cursor 拖进 Applications 文件夹就行</li>
-<li><strong>Windows</strong>：下载的是一个 <code>.exe</code> 安装包，双击按提示下一步即可</li>
-<li><strong>Linux</strong>：下载的是 <code>.AppImage</code> 或 <code>.deb</code> 包，按系统方式安装</li>
+<li><strong>macOS 用户</strong>：下载的是一个 <code>.dmg</code> 文件，双击打开，把 Cursor 图标拖进 Applications 文件夹就可以了</li>
+<li><strong>Windows 用户</strong>：下载的是 <code>.exe</code> 安装包，双击按提示点”下一步”就行</li>
+<li><strong>Linux 用户</strong>：下载的是 <code>.AppImage</code> 或 <code>.deb</code> 包，按自己系统的安装方式来</li>
 </ul>
-<h3 id="步骤-3：登录账号"><a href="#步骤-3：登录账号" class="headerlink" title="步骤 3：登录账号"></a>步骤 3：登录账号</h3><p>安装完成后打开 Cursor，它会引导你登录。你可以用：</p>
+<h3 id="步骤-3：登录账号"><a href="#步骤-3：登录账号" class="headerlink" title="步骤 3：登录账号"></a>步骤 3：登录账号</h3><p>安装完打开 Cursor，它会引导你登录。三种登录方式：</p>
 <ul>
-<li><strong>GitHub 账号</strong></li>
-<li><strong>Google 账号</strong></li>
-<li><strong>邮箱注册</strong></li>
+<li><strong>GitHub 账号登录</strong></li>
+<li><strong>Google 账号登录</strong></li>
+<li><strong>用邮箱注册</strong></li>
 </ul>
-<p>免费用户每个月有一定额度的 AI 调用次数，日常学习和小项目完全够用。</p>
+<p>免费版每个月会送一定次数的 AI 调用额度，日常学习和小项目完全够用。</p>
 <hr>
-<h2 id="三、界面介绍"><a href="#三、界面介绍" class="headerlink" title="三、界面介绍"></a>三、界面介绍</h2><p>打开 Cursor 后，你会看到这样一个界面。如果你用过 VS Code，会感觉很熟悉。</p>
-<p><img src="/knowledge-base/img/cursor-tutorial/cursor-hero.jpg" srcset="/knowledge-base/img/loading.gif" lazyload></p>
-<p>界面主要分成几个区域：</p>
+<h2 id="三、界面介绍"><a href="#三、界面介绍" class="headerlink" title="三、界面介绍"></a>三、界面介绍</h2><p>第一次打开 Cursor，你会看到一个代码编辑界面。如果你用过 VS Code，会发现它们几乎一样。</p>
+<p>整个界面由这几个区域组成：</p>
 <table>
 <thead>
 <tr>
 <th>区域</th>
-<th>位置</th>
-<th>作用</th>
+<th>在哪</th>
+<th>干什么用的</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>侧边栏</strong></td>
-<td>左侧</td>
-<td>文件列表、搜索、Git 等功能的入口</td>
+<td>左边</td>
+<td>显示文件列表、搜索文件、Git 操作等</td>
 </tr>
 <tr>
 <td><strong>编辑区</strong></td>
 <td>中间</td>
-<td>写代码的地方，可以同时打开多个文件（标签页）</td>
+<td>写代码的地方，可以同时打开多个文件</td>
 </tr>
 <tr>
 <td><strong>终端</strong></td>
 <td>底部</td>
-<td>运行命令的地方，比如 <code>python</code>、<code>git</code> 等</td>
+<td>运行命令用的，比如 <code>python</code>、<code>git</code></td>
 </tr>
 <tr>
 <td><strong>AI 聊天面板</strong></td>
-<td>右侧（可打开&#x2F;关闭）</td>
+<td>右边（可开关）</td>
 <td>跟 AI 对话的地方</td>
 </tr>
 </tbody></table>
-<p>其中<strong>右上角</strong>有几个按钮是 VS Code 没有的，那就是 Cursor 的 AI 功能入口。</p>
+<p>在顶部工具栏的右上角，有几个 VS Code 没有的按钮——那就是 Cursor 的 AI 功能入口。</p>
 <hr>
-<h2 id="四、三种模式详解"><a href="#四、三种模式详解" class="headerlink" title="四、三种模式详解"></a>四、三种模式详解</h2><p>Cursor 有三种 AI 交互模式，理解它们就能用好 Cursor。</p>
-<h3 id="模式一：Chat（聊天模式）"><a href="#模式一：Chat（聊天模式）" class="headerlink" title="模式一：Chat（聊天模式）"></a>模式一：Chat（聊天模式）</h3><p><strong>快捷键：<code>Cmd/Ctrl + L</code></strong></p>
-<p>Chat 模式就像在 ChatGPT 里提问一样。你可以：</p>
+<h2 id="四、三种模式详解"><a href="#四、三种模式详解" class="headerlink" title="四、三种模式详解"></a>四、三种模式详解</h2><p>Cursor 有 3 种 AI 交互方式。搞懂它们，你就知道怎么用了。</p>
+<h3 id="模式一：Chat（聊天模式）"><a href="#模式一：Chat（聊天模式）" class="headerlink" title="模式一：Chat（聊天模式）"></a>模式一：Chat（聊天模式）</h3><p><strong>快捷键：<code>Cmd / Ctrl + L</code></strong></p>
+<p>这个模式<strong>最像 ChatGPT</strong>，区别是它能看到你当前打开的文件。</p>
+<p>按下快捷键后，右边会弹出聊天面板，你可以：</p>
 <ul>
-<li>问它某段代码是什么意思</li>
-<li>问它某个报错怎么解决</li>
-<li>问它 Python 的某个语法怎么用</li>
+<li>问它：”这段代码是什么意思？”（它知道你选中的是哪段）</li>
+<li>问它：”这个报错怎么解决？”</li>
+<li>问它：”Python 里 <code>map</code> 函数怎么用？”</li>
 </ul>
-<p>它能看到你当前打开的文件，所以回答会结合你的代码上下文，比单独去网页搜索精确得多。</p>
-<p><strong>举例：</strong><br>你写了一段 Python 代码，不理解 <code>map</code> 函数的作用，选中那行代码，按 <code>Cmd+L</code>，在聊天框里问：”这段代码什么意思？”</p>
-<h3 id="模式二：Cmd-K（编辑模式）"><a href="#模式二：Cmd-K（编辑模式）" class="headerlink" title="模式二：Cmd+K（编辑模式）"></a>模式二：Cmd+K（编辑模式）</h3><p><strong>快捷键：<code>Cmd/Ctrl + K</code></strong></p>
-<p>这个模式是让你<strong>让 AI 帮你改代码</strong>。选中一段代码，按 <code>Cmd+K</code>，会出现一个输入框，输入你想让它做什么：</p>
+<p>因为 AI 能看到你的代码上下文，回答比你在搜索引擎上搜要精准得多。</p>
+<p><strong>适用场景：</strong> 遇到不懂的代码、报错信息、想学某个语法时。</p>
+<hr>
+<h3 id="模式二：Cmd-K（编辑模式）"><a href="#模式二：Cmd-K（编辑模式）" class="headerlink" title="模式二：Cmd+K（编辑模式）"></a>模式二：Cmd+K（编辑模式）</h3><p><strong>快捷键：<code>Cmd / Ctrl + K</code></strong></p>
+<p>这个模式是<strong>让 AI 帮你改代码</strong>。</p>
+<p>选中一段你想改的代码，按快捷键，会弹出一个输入框。在框里告诉 AI 你想怎么改，比如：</p>
 <ul>
-<li>“给这个函数加上注释”</li>
-<li>“把这段代码改成用列表推导式”</li>
-<li>“这个函数有 bug，帮我修一下”</li>
-<li>“把中文换成英文”</li>
+<li>“给每一行加上注释”</li>
+<li>“把这个函数改成用列表推导式”</li>
+<li>“这里有个 bug，帮我修一下”</li>
+<li>“把中文提示改成英文”</li>
 </ul>
-<p>它会生成修改后的代码，并让你预览改动的地方（diff 视图），你可以选择接受或拒绝。</p>
-<p><strong>举例：</strong><br>你写了一个没有注释的函数，选中全部代码，按 <code>Cmd+K</code>，输入”给每行代码加上注释”，它就会自动帮你注释好。</p>
-<h3 id="模式三：Agent（智能体模式）"><a href="#模式三：Agent（智能体模式）" class="headerlink" title="模式三：Agent（智能体模式）"></a>模式三：Agent（智能体模式）</h3><p><strong>快捷键：<code>Cmd/Ctrl + I</code></strong></p>
-<p><img src="/knowledge-base/img/cursor-tutorial/cursor-agent.jpg" srcset="/knowledge-base/img/loading.gif" lazyload></p>
-<p>这是 Cursor 最强悍的模式。Agent 跟前面两种模式最大的区别是：<strong>它不仅能说话、能改选中代码，还能自己操作整个项目。</strong></p>
+<p>AI 会生成修改后的代码，并用对比视图（diff）展示改动的地方。你觉得没问题就点 <strong>Accept（接受）</strong>，不满意就点 <strong>Reject（拒绝）</strong>。</p>
+<p><strong>适用场景：</strong> 给代码加注释、修 bug、优化代码写法。</p>
+<hr>
+<h3 id="模式三：Agent（智能体模式）"><a href="#模式三：Agent（智能体模式）" class="headerlink" title="模式三：Agent（智能体模式）"></a>模式三：Agent（智能体模式）</h3><p><strong>快捷键：<code>Cmd / Ctrl + I</code></strong></p>
+<p><strong>这是 Cursor 最强、最常用的模式。</strong> 前两种模式只是”聊天”和”改你选中的代码”，但 Agent 模式是<strong>直接把一个任务交给 AI 去做</strong>。</p>
 <p>Agent 可以：</p>
 <ul>
-<li>创建、修改、删除文件</li>
-<li>在终端里执行命令（比如装依赖、跑测试）</li>
-<li>读取你的整个项目来理解上下文</li>
-<li>一次完成多个步骤的任务</li>
+<li><strong>创建文件</strong>：让它写一个新文件，它会自动生成</li>
+<li><strong>修改文件</strong>：告诉它怎么改，它自己动手</li>
+<li><strong>删除文件</strong>：不需要的代码，它也能清理</li>
+<li><strong>执行命令</strong>：在终端里自动运行命令，比如装依赖、跑程序</li>
+<li><strong>理解整个项目</strong>：它会读你的整个项目结构，理解上下文</li>
 </ul>
-<p><strong>举例：</strong><br>在一个空文件夹里，按 <code>Cmd+I</code>，输入”帮我创建一个 Python 计算器，支持加减乘除，界面要友好的命令行交互”。Agent 就会自己创建文件、写代码，你只需要看看它做得好不好。</p>
+<p><strong>举个例子：</strong><br>你在一个空文件夹里，按 <code>Cmd+I</code>，然后输入：</p>
+<blockquote>
+<p>“帮我创建一个 Python 计算器，支持加减乘除，用户输入两个数字就能计算”</p>
+</blockquote>
+<p>Agent 就会自己创建文件、写好代码、可能还会在终端里运行测试一下。你只需要看它做得对不对。</p>
+<p><strong>适用场景：</strong> 从零写一个新功能、一次完成多个步骤的任务。</p>
 <hr>
-<h2 id="五、上手实操：用-Agent-做一个-Python-计算器"><a href="#五、上手实操：用-Agent-做一个-Python-计算器" class="headerlink" title="五、上手实操：用 Agent 做一个 Python 计算器"></a>五、上手实操：用 Agent 做一个 Python 计算器</h2><p>跟着做一遍，你就能体验到 Cursor 的完整工作流。</p>
-<h3 id="第-1-步：新建文件夹"><a href="#第-1-步：新建文件夹" class="headerlink" title="第 1 步：新建文件夹"></a>第 1 步：新建文件夹</h3><p>在电脑上新建一个文件夹，比如 <code>my-calculator</code>。</p>
-<h3 id="第-2-步：用-Cursor-打开这个文件夹"><a href="#第-2-步：用-Cursor-打开这个文件夹" class="headerlink" title="第 2 步：用 Cursor 打开这个文件夹"></a>第 2 步：用 Cursor 打开这个文件夹</h3><p>打开 Cursor，点击 <code>File → Open Folder</code>，选择刚才创建的文件夹。</p>
-<h3 id="第-3-步：启动-Agent"><a href="#第-3-步：启动-Agent" class="headerlink" title="第 3 步：启动 Agent"></a>第 3 步：启动 Agent</h3><p>按快捷键 <strong><code>Cmd+I</code></strong>（Windows 是 <code>Ctrl+I</code>），右边会弹出 Composer 界面。</p>
-<h3 id="第-4-步：给-Agent-下任务"><a href="#第-4-步：给-Agent-下任务" class="headerlink" title="第 4 步：给 Agent 下任务"></a>第 4 步：给 Agent 下任务</h3><p>在输入框里写：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">帮我创建一个 Python 计算器程序，要有以下功能：<br><span class="hljs-bullet">1.</span> 支持加减乘除<br><span class="hljs-bullet">2.</span> 用户输入两个数字和运算符<br><span class="hljs-bullet">3.</span> 显示计算结果<br><span class="hljs-bullet">4.</span> 有清屏和退出选项<br><br>代码要放在 calculator.py 文件里。<br></code></pre></td></tr></table></figure>
+<h2 id="五、动手实操：用-Agent-写一个计算器"><a href="#五、动手实操：用-Agent-写一个计算器" class="headerlink" title="五、动手实操：用 Agent 写一个计算器"></a>五、动手实操：用 Agent 写一个计算器</h2><p>跟着做一遍，你就能体会到 Cursor 的工作方式了。</p>
+<h3 id="第-1-步：新建一个文件夹"><a href="#第-1-步：新建一个文件夹" class="headerlink" title="第 1 步：新建一个文件夹"></a>第 1 步：新建一个文件夹</h3><p>在电脑上随便找一个位置，新建一个文件夹，取名叫 <code>my-calculator</code>。</p>
+<h3 id="第-2-步：用-Cursor-打开它"><a href="#第-2-步：用-Cursor-打开它" class="headerlink" title="第 2 步：用 Cursor 打开它"></a>第 2 步：用 Cursor 打开它</h3><p>打开 Cursor，点击菜单栏的 <strong>File → Open Folder</strong>，选中刚才建的文件夹。</p>
+<h3 id="第-3-步：启动-Agent"><a href="#第-3-步：启动-Agent" class="headerlink" title="第 3 步：启动 Agent"></a>第 3 步：启动 Agent</h3><p>按快捷键 <strong><code>Cmd+I</code></strong>（Windows 用户按 <code>Ctrl+I</code>），右边会弹出一个 Composer 界面。</p>
+<h3 id="第-4-步：告诉-Agent-要做什么"><a href="#第-4-步：告诉-Agent-要做什么" class="headerlink" title="第 4 步：告诉 Agent 要做什么"></a>第 4 步：告诉 Agent 要做什么</h3><p>在输入框里打字告诉它：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">帮我创建一个 Python 计算器程序，功能：<br><span class="hljs-bullet">1.</span> 支持加减乘除<br><span class="hljs-bullet">2.</span> 用户输入两个数字和运算符<br><span class="hljs-bullet">3.</span> 显示计算结果<br><span class="hljs-bullet">4.</span> 有退出选项<br><br>代码写在 calculator.py 文件里。<br></code></pre></td></tr></table></figure>
 
-<p>按回车发送。</p>
-<h3 id="第-5-步：观察-Agent-工作"><a href="#第-5-步：观察-Agent-工作" class="headerlink" title="第 5 步：观察 Agent 工作"></a>第 5 步：观察 Agent 工作</h3><p>你会看到 Agent 自动：</p>
+<p>输完后按回车发送。</p>
+<h3 id="第-5-步：看-Agent-干活"><a href="#第-5-步：看-Agent-干活" class="headerlink" title="第 5 步：看 Agent 干活"></a>第 5 步：看 Agent 干活</h3><p>你会看到 Agent 自动做好这些事：</p>
 <ol>
-<li>创建了 <code>calculator.py</code> 文件</li>
-<li>写好了完整代码</li>
-<li>可能还在终端里测试运行了一下</li>
+<li>在左侧文件列表中出现了一个 <code>calculator.py</code></li>
+<li>代码写好了，显示在编辑区</li>
+<li>可能还会自动在终端里运行测试</li>
 </ol>
-<h3 id="第-6-步：使用-Chat-模式问问题"><a href="#第-6-步：使用-Chat-模式问问题" class="headerlink" title="第 6 步：使用 Chat 模式问问题"></a>第 6 步：使用 Chat 模式问问题</h3><p>现在试试用 Chat 模式。选中 Agent 生成的代码中的某一段，按 <strong><code>Cmd+L</code></strong>，输入：</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi">这段代码里 <span class="hljs-keyword">try</span> <span class="hljs-keyword">except</span> 是做什么用的？<br></code></pre></td></tr></table></figure>
+<h3 id="第-6-步：用-Chat-模式问问题"><a href="#第-6-步：用-Chat-模式问问题" class="headerlink" title="第 6 步：用 Chat 模式问问题"></a>第 6 步：用 Chat 模式问问题</h3><p>试试选中代码里的某一段（比如 <code>try/except</code> 部分），按 <strong><code>Cmd+L</code></strong>，在聊天框输入：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">这行代码是干什么的？<br></code></pre></td></tr></table></figure>
 
-<p>它会解释 <code>try/except</code> 是用来处理错误（比如用户输入了字母而不是数字）。</p>
-<h3 id="第-7-步：用-Cmd-K-模式改功能"><a href="#第-7-步：用-Cmd-K-模式改功能" class="headerlink" title="第 7 步：用 Cmd+K 模式改功能"></a>第 7 步：用 Cmd+K 模式改功能</h3><p>选中计算部分的核心代码，按 <strong><code>Cmd+K</code></strong>，输入：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">给计算器加上乘方（^）运算<br></code></pre></td></tr></table></figure>
+<p>AI 会解释这行代码的作用。</p>
+<h3 id="第-7-步：用-Cmd-K-加功能"><a href="#第-7-步：用-Cmd-K-加功能" class="headerlink" title="第 7 步：用 Cmd+K 加功能"></a>第 7 步：用 Cmd+K 加功能</h3><p>选中计算的核心代码，按 <strong><code>Cmd+K</code></strong>，输入：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">加上乘方（^）运算<br></code></pre></td></tr></table></figure>
 
-<p>它会修改代码，你看了没问题就点 Accept 接受。</p>
+<p>AI 会修改代码，你看了没问题就点 <strong>Accept</strong>。</p>
 <hr>
-<h2 id="六、常用设置"><a href="#六、常用设置" class="headerlink" title="六、常用设置"></a>六、常用设置</h2><h3 id="切换模型"><a href="#切换模型" class="headerlink" title="切换模型"></a>切换模型</h3><p>在 Chat 或 Agent 界面的底部，有一个模型选择下拉菜单，你可以切换不同的底层大模型：</p>
-<p>常见的选项包括：</p>
+<h2 id="六、常用设置"><a href="#六、常用设置" class="headerlink" title="六、常用设置"></a>六、常用设置</h2><h3 id="切换模型"><a href="#切换模型" class="headerlink" title="切换模型"></a>切换模型</h3><p>在 AI 聊天界面的底部，有一个模型选择下拉菜单，你可以切换不同的 AI 模型。常见的选择有：</p>
 <ul>
-<li><strong>Claude Opus &#x2F; Sonnet</strong> — Anthropic 的模型，编码能力很强</li>
-<li><strong>GPT-4o &#x2F; GPT-4</strong> — OpenAI 的模型</li>
-<li><strong>Cursor 默认</strong>（自动选择最合适的）</li>
+<li><strong>Claude Opus &#x2F; Sonnet</strong> — AI 编程能力很强，推荐</li>
+<li><strong>GPT-4o</strong> — OpenAI 的模型</li>
+<li><strong>Cursor 默认</strong> — 让系统自动选最合适的</li>
 </ul>
-<h3 id="Cursor-Rules（规则设定）"><a href="#Cursor-Rules（规则设定）" class="headerlink" title="Cursor Rules（规则设定）"></a>Cursor Rules（规则设定）</h3><p>在项目根目录下创建 <code>.cursorrules</code> 文件，可以告诉 Cursor 你的项目规则，比如：</p>
-<ul>
-<li>“使用 Python 3.12”</li>
-<li>“代码注释用中文”</li>
-<li>“遵循 PEP 8 规范”</li>
-</ul>
-<p>这样 Cursor 每次生成代码时都会遵守这些规则，不需要每次都重新交代。</p>
-<p><img src="/knowledge-base/img/cursor-tutorial/cursor-tab.jpg" srcset="/knowledge-base/img/loading.gif" lazyload></p>
+<h3 id="设置规则（Cursor-Rules）"><a href="#设置规则（Cursor-Rules）" class="headerlink" title="设置规则（Cursor Rules）"></a>设置规则（Cursor Rules）</h3><p>在项目根目录下创建一个 <code>.cursorrules</code> 文件，写上你的规则，比如：</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tap">语言： Python<br>注释： 用中文<br>风格： 遵循 PEP<span class="hljs-number"> 8 </span>规范<br></code></pre></td></tr></table></figure>
+
+<p>这样 Cursor 在帮你写代码时，就会自动遵守这些规则，不用每次都重复交代。</p>
 <hr>
-<p>这就是 Cursor 的完整上手流程。从下载安装到三种模式的理解，再到动手实操一个功能，你应该已经能开始用了。</p>
-<p>把这篇文章中的三种模式记住，平常写代码时多尝试，很快就能习惯 AI 辅助编程的工作方式。</p>
+<p>好了，这就是 Cursor 的完整上手流程。记住三种模式的适用场景：</p>
+<ul>
+<li><strong>Chat（Cmd+L）：问问题</strong></li>
+<li><strong>编辑（Cmd+K）：改选中的代码</strong></li>
+<li><strong>Agent（Cmd+I）：交给 AI 去干</strong></li>
+</ul>
+<p>多用几次就习惯了。</p>
 
                 
               </div>
