@@ -1,0 +1,1291 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/knowledge-base/img/fluid.png">
+  <link rel="icon" href="/knowledge-base/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhihao-ailab">
+  <meta name="keywords" content="AI, Agent, LLM, MCP, 机器学习">
+  
+    <meta name="description" content="飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书 适合读者：正在学习 AI Agent、想把飞书接入自动化工作流、希望让 Claude Code &#x2F; 其他 Agent 操作飞书的人。  最近我在电脑上接入了飞书 CLI，并尝试让 AI Agent 通过命令行操作飞书：给自己发消息、创建多维表格、申请日历权限等。这个过程让我发现：飞书 CLI 很适合拿来作为 AI Agent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书">
+<meta property="og:url" content="https://zhihao-ailab.github.io/knowledge-base/2026/06/08/feishu-cli-agent-tutorial/index.html">
+<meta property="og:site_name" content="AI学习笔记">
+<meta property="og:description" content="飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书 适合读者：正在学习 AI Agent、想把飞书接入自动化工作流、希望让 Claude Code &#x2F; 其他 Agent 操作飞书的人。  最近我在电脑上接入了飞书 CLI，并尝试让 AI Agent 通过命令行操作飞书：给自己发消息、创建多维表格、申请日历权限等。这个过程让我发现：飞书 CLI 很适合拿来作为 AI Agent">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T07:34:27.441Z">
+<meta property="article:author" content="zhihao-ailab">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="自动化">
+<meta property="article:tag" content="飞书">
+<meta property="article:tag" content="飞书 CLI">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书 - AI学习笔记</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/knowledge-base/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/knowledge-base/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/knowledge-base/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhihao-ailab.github.io","root":"/knowledge-base/","version":"1.9.9","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/knowledge-base/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/knowledge-base/js/utils.js" ></script>
+  <script  src="/knowledge-base/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/knowledge-base/">
+      <strong>AI学习笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/knowledge-base/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/knowledge-base/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/knowledge-base/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/knowledge-base/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/knowledge-base/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/knowledge-base/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/knowledge-base/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/knowledge-base/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/knowledge-base/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/knowledge-base/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/knowledge-base/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-08 00:00" pubdate>
+          2026年6月8日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.5k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="飞书-CLI-入门教程：让-AI-Agent-真正操作你的飞书"><a href="#飞书-CLI-入门教程：让-AI-Agent-真正操作你的飞书" class="headerlink" title="飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书"></a>飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书</h1><blockquote>
+<p>适合读者：正在学习 AI Agent、想把飞书接入自动化工作流、希望让 Claude Code &#x2F; 其他 Agent 操作飞书的人。</p>
+</blockquote>
+<p>最近我在电脑上接入了飞书 CLI，并尝试让 AI Agent 通过命令行操作飞书：给自己发消息、创建多维表格、申请日历权限等。这个过程让我发现：飞书 CLI 很适合拿来作为 AI Agent 的“办公工具层”。</p>
+<p>这篇文章会从零开始介绍：</p>
+<ul>
+<li>飞书 CLI 是什么；</li>
+<li>如何安装和检查；</li>
+<li>User 身份和 Bot 身份有什么区别；</li>
+<li>如何授权；</li>
+<li>如何发消息、创建多维表格、申请日历权限；</li>
+<li>为什么很多权限会提示“需要审批”；</li>
+<li>AI Agent + 飞书 CLI 可以做什么。</li>
+</ul>
+<hr>
+<h2 id="1-飞书-CLI-是什么？"><a href="#1-飞书-CLI-是什么？" class="headerlink" title="1. 飞书 CLI 是什么？"></a>1. 飞书 CLI 是什么？</h2><p>飞书 CLI 是飞书官方提供的命令行工具，可以通过终端操作飞书开放平台能力。</p>
+<p>你可以把它理解成：</p>
+<blockquote>
+<p>飞书开放平台 API 的命令行封装。</p>
+</blockquote>
+<p>它可以操作很多飞书资源，例如：</p>
+<ul>
+<li>消息 &#x2F; 群聊；</li>
+<li>通讯录；</li>
+<li>多维表格；</li>
+<li>飞书文档；</li>
+<li>云空间文件；</li>
+<li>日历 &#x2F; 日程；</li>
+<li>表格 Sheets；</li>
+<li>Wiki；</li>
+<li>任务；</li>
+<li>会议等。</li>
+</ul>
+<p>比如发送一条飞书消息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --user-id ou_xxx \<br>  --text <span class="hljs-string">&quot;你好&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<p>创建一个多维表格：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli base +base-create \<br>  --name <span class="hljs-string">&quot;测试多维表格&quot;</span> \<br>  --time-zone Asia/Shanghai \<br>  --as user<br></code></pre></td></tr></table></figure>
+
+<p>对于 AI Agent 来说，飞书 CLI 很重要，因为它提供了一个清晰的工具边界：</p>
+<ul>
+<li>Agent 负责理解任务、拆解步骤、判断需要哪个能力；</li>
+<li>飞书 CLI 负责真正调用飞书 API；</li>
+<li>飞书开放平台负责权限、数据和执行。</li>
+</ul>
+<hr>
+<h2 id="2-工作原理图"><a href="#2-工作原理图" class="headerlink" title="2. 工作原理图"></a>2. 工作原理图</h2><p>飞书 CLI 和 AI Agent 的关系可以用下面这张图理解：</p>
+<pre><code class=" mermaid">flowchart LR
+    User[用户] --&gt; Agent[AI Agent / Claude Code]
+    Agent --&gt; CLI[飞书 CLI / lark-cli]
+    CLI --&gt; Auth[飞书授权]
+    CLI --&gt; API[飞书开放平台 API]
+    API --&gt; Feishu[飞书资源]
+
+    Feishu --&gt; IM[消息]
+    Feishu --&gt; Base[多维表格]
+    Feishu --&gt; Docs[文档]
+    Feishu --&gt; Calendar[日历]
+    Feishu --&gt; Drive[云空间]
+</code></pre>
+
+<p>如果你的博客平台不支持 Mermaid，可以把这张图截图成图片。</p>
+<p>配图建议：</p>
+<blockquote>
+<p>图 1：AI Agent 通过飞书 CLI 操作飞书资源的架构图。</p>
+</blockquote>
+<hr>
+<h2 id="3-安装飞书-CLI"><a href="#3-安装飞书-CLI" class="headerlink" title="3. 安装飞书 CLI"></a>3. 安装飞书 CLI</h2><p>官方安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g @larksuite/cli<br></code></pre></td></tr></table></figure>
+
+<p>如果你使用 Claude Code 这类支持 Skills 的 Agent，还可以安装飞书相关技能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx -y skills add https://open.feishu.cn --skill -y<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后，检查版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli --version<br></code></pre></td></tr></table></figure>
+
+<p>示例输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">lark-cli version 1.0.46<br></code></pre></td></tr></table></figure>
+
+<p>查看帮助：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<p>你会看到类似这样的命令列表：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs text">Available Commands:<br>  api         Generic Lark API requests<br>  auth        OAuth credentials and authorization management<br>  base        Table, field, record, view management<br>  calendar    Calendar, event, and attendee management<br>  contact     Contacts operations<br>  docs        Document and content operations<br>  drive       File and upload management<br>  im          Message and group chat management<br>  sheets      Spreadsheet operations<br>  wiki        Wiki space and node management<br></code></pre></td></tr></table></figure>
+
+<p>配图建议：</p>
+<blockquote>
+<p>图 2：终端执行 <code>lark-cli --help</code> 的截图。</p>
+</blockquote>
+<hr>
+<h2 id="4-初始化配置"><a href="#4-初始化配置" class="headerlink" title="4. 初始化配置"></a>4. 初始化配置</h2><p>首次使用需要初始化飞书应用配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli config init --new<br></code></pre></td></tr></table></figure>
+
+<p>这个过程通常会让你配置：</p>
+<ul>
+<li>飞书应用的 App ID；</li>
+<li>App Secret；</li>
+<li>使用飞书还是 Lark；</li>
+<li>应用权限和授权信息。</li>
+</ul>
+<p>初始化完成后，可以运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli doctor<br></code></pre></td></tr></table></figure>
+
+<p>如果一切正常，会看到类似：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Everything looks good!<br></code></pre></td></tr></table></figure>
+
+<p>配图建议：</p>
+<blockquote>
+<p>图 3：<code>lark-cli doctor</code> 检查通过的终端截图。</p>
+</blockquote>
+<hr>
+<h2 id="5-User-身份和-Bot-身份"><a href="#5-User-身份和-Bot-身份" class="headerlink" title="5. User 身份和 Bot 身份"></a>5. User 身份和 Bot 身份</h2><p>飞书 CLI 里最容易混淆的是两种身份：</p>
+<table>
+<thead>
+<tr>
+<th>身份</th>
+<th>参数</th>
+<th>含义</th>
+<th>常见用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User 身份</td>
+<td><code>--as user</code></td>
+<td>以当前授权用户身份操作</td>
+<td>访问用户自己的日历、云空间、文档、多维表格</td>
+</tr>
+<tr>
+<td>Bot 身份</td>
+<td><code>--as bot</code></td>
+<td>以飞书应用机器人身份操作</td>
+<td>发通知、群聊消息、应用级操作</td>
+</tr>
+</tbody></table>
+<h3 id="User-身份"><a href="#User-身份" class="headerlink" title="User 身份"></a>User 身份</h3><p>User 身份代表“我本人”。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli base +base-create \<br>  --name <span class="hljs-string">&quot;测试多维表格&quot;</span> \<br>  --as user<br></code></pre></td></tr></table></figure>
+
+<p>意思是：用我的飞书账号创建一个多维表格。</p>
+<h3 id="Bot-身份"><a href="#Bot-身份" class="headerlink" title="Bot 身份"></a>Bot 身份</h3><p>Bot 身份代表“飞书应用机器人”。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --user-id ou_xxx \<br>  --text <span class="hljs-string">&quot;你好&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<p>意思是：让飞书应用机器人给某个用户发消息。</p>
+<p>注意：Bot 不是用户本人。Bot 默认不能访问用户的个人日历、个人云空间、个人文档。访问这些个人资源通常要用 <code>--as user</code>。</p>
+<p>配图建议：</p>
+<blockquote>
+<p>图 4：User 身份和 Bot 身份对比图。</p>
+</blockquote>
+<hr>
+<h2 id="6-授权流程"><a href="#6-授权流程" class="headerlink" title="6. 授权流程"></a>6. 授权流程</h2><p>飞书 CLI 的很多能力都需要授权。</p>
+<p>例如：</p>
+<ul>
+<li>创建多维表格需要 <code>base:app:create</code>；</li>
+<li>读取日历需要 <code>calendar:calendar:readonly</code>；</li>
+<li>创建日程需要 <code>calendar:calendar.event:create</code>；</li>
+<li>修改日程需要 <code>calendar:calendar.event:update</code>。</li>
+</ul>
+<p>推荐用最小权限逐个申请，而不是一上来申请整个 domain。</p>
+<p>例如，只申请日历只读权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login \<br>  --scope <span class="hljs-string">&quot;calendar:calendar:readonly&quot;</span> \<br>  --no-wait \<br>  --json<br></code></pre></td></tr></table></figure>
+
+<p>命令会返回类似：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;device_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;xxx&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;verification_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://accounts.feishu.cn/oauth/v1/device/verify?...&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>用户打开 <code>verification_url</code>，在飞书里确认授权。</p>
+<p>授权完成后，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login --device-code &lt;device_code&gt;<br></code></pre></td></tr></table></figure>
+
+<p>成功后会看到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">OK: 授权成功!<br></code></pre></td></tr></table></figure>
+
+<p>配图建议：</p>
+<blockquote>
+<p>图 5：飞书授权页面截图。<br>图 6：授权成功后的终端截图。</p>
+</blockquote>
+<hr>
+<h2 id="7-查看当前授权状态"><a href="#7-查看当前授权状态" class="headerlink" title="7. 查看当前授权状态"></a>7. 查看当前授权状态</h2><p>可以用这个命令查看当前有哪些权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth status --verify<br></code></pre></td></tr></table></figure>
+
+<p>示例输出：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;appId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cli_xxx&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;brand&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;feishu&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;identities&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;bot&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ready&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;appName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;我的飞书 CLI&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;user&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ready&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;userName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;张三&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;calendar:calendar:readonly base:app:create auth:user.id:read contact:user.basic_profile:readonly offline_access&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;identity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;user&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;verified&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>重点看 <code>scope</code> 字段。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar:readonly<br>base:app:create<br>auth:user.id:read<br>contact:user.basic_profile:readonly<br>offline_access<br></code></pre></td></tr></table></figure>
+
+<p>这些分别表示：</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>calendar:calendar:readonly</code></td>
+<td>读取日历容器信息</td>
+</tr>
+<tr>
+<td><code>base:app:create</code></td>
+<td>创建多维表格</td>
+</tr>
+<tr>
+<td><code>auth:user.id:read</code></td>
+<td>读取用户 ID</td>
+</tr>
+<tr>
+<td><code>contact:user.basic_profile:readonly</code></td>
+<td>读取基础通讯录资料</td>
+</tr>
+<tr>
+<td><code>offline_access</code></td>
+<td>支持 refresh token 自动续期</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="8-实战一：让-Bot-给自己发一条消息"><a href="#8-实战一：让-Bot-给自己发一条消息" class="headerlink" title="8. 实战一：让 Bot 给自己发一条消息"></a>8. 实战一：让 Bot 给自己发一条消息</h2><p>如果 Bot 身份已经 ready，可以测试发送消息。</p>
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --user-id ou_xxx \<br>  --text <span class="hljs-string">&quot;你好&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<p>成功输出：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;identity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bot&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;chat_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;oc_xxx&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;message_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;om_xxx&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;create_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-06-03 14:46:58&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>这说明机器人已经成功发送消息。</p>
+<p>配图建议：</p>
+<blockquote>
+<p>图 7：飞书里收到机器人消息“你好”的截图。</p>
+</blockquote>
+<hr>
+<h2 id="9-实战二：创建一个多维表格"><a href="#9-实战二：创建一个多维表格" class="headerlink" title="9. 实战二：创建一个多维表格"></a>9. 实战二：创建一个多维表格</h2><p>创建多维表格需要：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">base:app:create<br></code></pre></td></tr></table></figure>
+
+<p>申请权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login \<br>  --scope <span class="hljs-string">&quot;base:app:create&quot;</span> \<br>  --no-wait \<br>  --json<br></code></pre></td></tr></table></figure>
+
+<p>授权成功后创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli base +base-create \<br>  --name <span class="hljs-string">&quot;测试多维表格&quot;</span> \<br>  --time-zone Asia/Shanghai \<br>  --as user<br></code></pre></td></tr></table></figure>
+
+<p>成功输出：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;ok&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;identity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;user&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;base&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;base_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ZJLnb3iSwaNFHOspKDyc3xtjnLb&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;测试多维表格&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://xxx.feishu.cn/base/ZJLnb3iSwaNFHOspKDyc3xtjnLb&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;created&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>最重要的是两个字段：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">base_token<br>url<br></code></pre></td></tr></table></figure>
+
+<p><code>url</code> 就是创建好的多维表格链接。</p>
+<p>配图建议：</p>
+<blockquote>
+<p>图 8：飞书多维表格创建成功后的页面截图。</p>
+</blockquote>
+<hr>
+<h2 id="10-实战三：申请日历只读权限"><a href="#10-实战三：申请日历只读权限" class="headerlink" title="10. 实战三：申请日历只读权限"></a>10. 实战三：申请日历只读权限</h2><p>日历相关权限建议从最低风险开始申请。</p>
+<p>先申请：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar:readonly<br></code></pre></td></tr></table></figure>
+
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login \<br>  --scope <span class="hljs-string">&quot;calendar:calendar:readonly&quot;</span> \<br>  --no-wait \<br>  --json<br></code></pre></td></tr></table></figure>
+
+<p>授权成功后查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth status --verify<br></code></pre></td></tr></table></figure>
+
+<p>如果看到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar:readonly<br></code></pre></td></tr></table></figure>
+
+<p>说明日历只读权限已经成功。</p>
+<hr>
+<h2 id="11-日历权限：读取日历和创建日程不是一回事"><a href="#11-日历权限：读取日历和创建日程不是一回事" class="headerlink" title="11. 日历权限：读取日历和创建日程不是一回事"></a>11. 日历权限：读取日历和创建日程不是一回事</h2><p>这里非常容易踩坑。</p>
+<p>飞书里“日历”和“日程”不是同一个概念：</p>
+<ul>
+<li>Calendar：日历容器；</li>
+<li>Event：日程 &#x2F; 会议。</li>
+</ul>
+<p>对应权限也不同：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读取日历容器</td>
+<td><code>calendar:calendar:readonly</code></td>
+</tr>
+<tr>
+<td>创建日历容器</td>
+<td><code>calendar:calendar:create</code></td>
+</tr>
+<tr>
+<td>读取日程详情</td>
+<td><code>calendar:calendar.event:read</code></td>
+</tr>
+<tr>
+<td>查询忙闲时间</td>
+<td><code>calendar:calendar.free_busy:read</code></td>
+</tr>
+<tr>
+<td>创建日程</td>
+<td><code>calendar:calendar.event:create</code></td>
+</tr>
+<tr>
+<td>修改日程</td>
+<td><code>calendar:calendar.event:update</code></td>
+</tr>
+</tbody></table>
+<p>这也是为什么“我已经授权日历了，为什么还不能创建日程”的原因。</p>
+<p>因为读取日历和创建日程是两套 scope。</p>
+<hr>
+<h2 id="12-为什么很多权限需要审批？"><a href="#12-为什么很多权限需要审批？" class="headerlink" title="12. 为什么很多权限需要审批？"></a>12. 为什么很多权限需要审批？</h2><p>这是飞书开放平台的安全机制。</p>
+<p>一般来说，权限可以分成三类：</p>
+<h3 id="低风险权限"><a href="#低风险权限" class="headerlink" title="低风险权限"></a>低风险权限</h3><p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">auth:user.id:read<br>contact:user.basic_profile:readonly<br></code></pre></td></tr></table></figure>
+
+<p>这些只读取基础身份信息，通常比较容易授权。</p>
+<h3 id="中风险权限"><a href="#中风险权限" class="headerlink" title="中风险权限"></a>中风险权限</h3><p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:read<br>base:record:read<br>drive:file:readonly<br></code></pre></td></tr></table></figure>
+
+<p>这些会读取用户业务数据，可能需要管理员审批。</p>
+<h3 id="高风险权限"><a href="#高风险权限" class="headerlink" title="高风险权限"></a>高风险权限</h3><p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:create<br>calendar:calendar.event:update<br>base:record:delete<br>drive:file:delete<br>im:message:send_as_user<br></code></pre></td></tr></table></figure>
+
+<p>这些会写入、修改、删除数据，或者代表用户发送内容，通常更容易触发审批。</p>
+<p>特别是创建日程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:create<br></code></pre></td></tr></table></figure>
+
+<p>它虽然是以当前用户身份创建，但可能会：</p>
+<ul>
+<li>占用你的日历时间；</li>
+<li>邀请别人参加会议；</li>
+<li>发送日程通知；</li>
+<li>创建飞书视频会议；</li>
+<li>影响其他人的工作安排。</li>
+</ul>
+<p>所以这个权限很可能需要管理员审批。</p>
+<p>配图建议：</p>
+<blockquote>
+<p>图 9：权限风险等级金字塔。<br>底层：基础信息读取；中层：业务数据读取；顶层：写入、删除、发送、邀请。</p>
+</blockquote>
+<hr>
+<h2 id="13-为什么不要一次申请整个-domain？"><a href="#13-为什么不要一次申请整个-domain？" class="headerlink" title="13. 为什么不要一次申请整个 domain？"></a>13. 为什么不要一次申请整个 domain？</h2><p>飞书 CLI 支持按 domain 申请权限，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login --domain calendar<br></code></pre></td></tr></table></figure>
+
+<p>但我不建议新手一上来这么做。</p>
+<p>原因是：一个 domain 里可能包含很多 scope，只要其中某些 scope 需要审批，就可能导致整个授权流程卡住。</p>
+<p>更推荐的做法是：<strong>最小权限逐个申请</strong>。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login --scope <span class="hljs-string">&quot;calendar:calendar:readonly&quot;</span> --no-wait --json<br></code></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login --scope <span class="hljs-string">&quot;base:app:create&quot;</span> --no-wait --json<br></code></pre></td></tr></table></figure>
+
+<p>这样有两个好处：</p>
+<ol>
+<li>更容易通过；</li>
+<li>更容易定位到底哪个权限需要审批。</li>
+</ol>
+<hr>
+<h2 id="14-推荐的最小权限申请顺序"><a href="#14-推荐的最小权限申请顺序" class="headerlink" title="14. 推荐的最小权限申请顺序"></a>14. 推荐的最小权限申请顺序</h2><p>如果你想搭建一个飞书 Agent，我建议按下面顺序逐步申请。</p>
+<h3 id="第一步：基础身份"><a href="#第一步：基础身份" class="headerlink" title="第一步：基础身份"></a>第一步：基础身份</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">auth:user.id:read<br>contact:user.basic_profile:readonly<br>offline_access<br></code></pre></td></tr></table></figure>
+
+<h3 id="第二步：Bot-消息能力"><a href="#第二步：Bot-消息能力" class="headerlink" title="第二步：Bot 消息能力"></a>第二步：Bot 消息能力</h3><p>如果只是让机器人发消息，通常走 Bot 身份。</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --user-id ou_xxx \<br>  --text <span class="hljs-string">&quot;你好&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<h3 id="第三步：多维表格基础能力"><a href="#第三步：多维表格基础能力" class="headerlink" title="第三步：多维表格基础能力"></a>第三步：多维表格基础能力</h3><p>先申请创建 Base：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">base:app:create<br></code></pre></td></tr></table></figure>
+
+<p>之后再按需申请：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">base:app:read<br>base:table:read<br>base:record:read<br>base:record:create<br>base:record:update<br></code></pre></td></tr></table></figure>
+
+<h3 id="第四步：日历只读"><a href="#第四步：日历只读" class="headerlink" title="第四步：日历只读"></a>第四步：日历只读</h3><p>先申请：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar:readonly<br></code></pre></td></tr></table></figure>
+
+<p>如果成功，再尝试：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:read<br>calendar:calendar.free_busy:read<br></code></pre></td></tr></table></figure>
+
+<p>最后再申请写入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:create<br>calendar:calendar.event:update<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="15-AI-Agent-飞书-CLI-可以做什么？"><a href="#15-AI-Agent-飞书-CLI-可以做什么？" class="headerlink" title="15. AI Agent + 飞书 CLI 可以做什么？"></a>15. AI Agent + 飞书 CLI 可以做什么？</h2><p>当飞书 CLI 接入 AI Agent 后，可以做很多自动化工作。</p>
+<h3 id="1-飞书消息助手"><a href="#1-飞书消息助手" class="headerlink" title="1. 飞书消息助手"></a>1. 飞书消息助手</h3><p>例如：</p>
+<ul>
+<li>给自己发送提醒；</li>
+<li>给群里发送日报；</li>
+<li>根据任务状态推送通知。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --chat-id oc_xxx \<br>  --text <span class="hljs-string">&quot;今日日报已生成&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-多维表格-Agent"><a href="#2-多维表格-Agent" class="headerlink" title="2. 多维表格 Agent"></a>2. 多维表格 Agent</h3><p>例如：</p>
+<ul>
+<li>创建项目管理表；</li>
+<li>写入任务记录；</li>
+<li>查询客户信息；</li>
+<li>汇总数据。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli base +base-create \<br>  --name <span class="hljs-string">&quot;项目管理&quot;</span> \<br>  --as user<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-日历-Agent"><a href="#3-日历-Agent" class="headerlink" title="3. 日历 Agent"></a>3. 日历 Agent</h3><p>例如：</p>
+<ul>
+<li>查询今天日程；</li>
+<li>分析空闲时间；</li>
+<li>推荐会议时间；</li>
+<li>创建会议邀请。</li>
+</ul>
+<p>只读权限示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli calendar +agenda --as user<br></code></pre></td></tr></table></figure>
+
+<p>创建日程通常需要额外写入权限。</p>
+<h3 id="4-文档-Agent"><a href="#4-文档-Agent" class="headerlink" title="4. 文档 Agent"></a>4. 文档 Agent</h3><p>例如：</p>
+<ul>
+<li>创建会议纪要；</li>
+<li>根据聊天记录生成文档；</li>
+<li>编辑飞书文档；</li>
+<li>生成日报 &#x2F; 周报 &#x2F; 项目总结。</li>
+</ul>
+<hr>
+<h2 id="16-常见问题"><a href="#16-常见问题" class="headerlink" title="16. 常见问题"></a>16. 常见问题</h2><h3 id="Q1：为什么安装了-CLI，但还是不能操作飞书？"><a href="#Q1：为什么安装了-CLI，但还是不能操作飞书？" class="headerlink" title="Q1：为什么安装了 CLI，但还是不能操作飞书？"></a>Q1：为什么安装了 CLI，但还是不能操作飞书？</h3><p>因为安装 CLI 只是第一步，还需要：</p>
+<ol>
+<li>配置飞书应用；</li>
+<li>在开放平台开启对应 API 权限；</li>
+<li>用户完成授权；</li>
+<li>目标资源本身允许访问。</li>
+</ol>
+<p>可以用下面命令检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth status --verify<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Q2：为什么-Bot-能发消息，但不能访问我的文档？"><a href="#Q2：为什么-Bot-能发消息，但不能访问我的文档？" class="headerlink" title="Q2：为什么 Bot 能发消息，但不能访问我的文档？"></a>Q2：为什么 Bot 能发消息，但不能访问我的文档？</h3><p>因为 Bot 身份不是你本人。</p>
+<p>Bot 可以作为应用机器人发消息，但它默认不能访问你的个人云空间、个人日历、个人文档。</p>
+<p>访问个人资源通常需要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">--as user<br></code></pre></td></tr></table></figure>
+
+<p>并完成用户授权。</p>
+<hr>
+<h3 id="Q3：为什么创建日程权限需要审批？"><a href="#Q3：为什么创建日程权限需要审批？" class="headerlink" title="Q3：为什么创建日程权限需要审批？"></a>Q3：为什么创建日程权限需要审批？</h3><p>因为创建日程是写入操作。</p>
+<p>它可能会：</p>
+<ul>
+<li>邀请别人；</li>
+<li>发送通知；</li>
+<li>占用日历；</li>
+<li>创建视频会议。</li>
+</ul>
+<p>所以飞书会把它视为比较敏感的权限。</p>
+<hr>
+<h3 id="Q4：有没有“只给自己创建日程”的低风险权限？"><a href="#Q4：有没有“只给自己创建日程”的低风险权限？" class="headerlink" title="Q4：有没有“只给自己创建日程”的低风险权限？"></a>Q4：有没有“只给自己创建日程”的低风险权限？</h3><p>从飞书权限模型看，创建日程通常仍然需要：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">calendar:calendar.event:create<br></code></pre></td></tr></table></figure>
+
+<p>即使只是给自己创建提醒，本质上也是写入日程。</p>
+<p>所以它依然可能需要管理员审批。</p>
+<hr>
+<h2 id="17-总结"><a href="#17-总结" class="headerlink" title="17. 总结"></a>17. 总结</h2><p>飞书 CLI 是搭建办公自动化 Agent 的一个非常好的入口。</p>
+<p>它的价值在于：</p>
+<ul>
+<li>把飞书开放平台 API 封装成命令行；</li>
+<li>可以被 AI Agent 直接调用；</li>
+<li>能覆盖消息、日历、多维表格、文档、云空间等常见办公场景；</li>
+<li>支持 User &#x2F; Bot 两种身份；</li>
+<li>支持最小权限逐步授权。</li>
+</ul>
+<p>你可以把完整架构理解成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">AI Agent：理解任务、规划步骤<br>飞书 CLI：执行具体命令<br>飞书开放平台：管理权限和数据<br>飞书应用：承载 Bot 与 API 能力<br></code></pre></td></tr></table></figure>
+
+<p>最终，一个飞书 Agent 可以帮你完成：</p>
+<ul>
+<li>自动发消息；</li>
+<li>自动建多维表格；</li>
+<li>自动读取日历；</li>
+<li>自动生成文档；</li>
+<li>自动整理会议纪要；</li>
+<li>自动管理任务和项目数据。</li>
+</ul>
+<p>如果你正在学习 AI Agent，飞书 CLI 非常适合作为第一个真实办公场景练手项目。</p>
+<hr>
+<h2 id="18-附录：常用命令速查"><a href="#18-附录：常用命令速查" class="headerlink" title="18. 附录：常用命令速查"></a>18. 附录：常用命令速查</h2><h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli --version<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli config init --new<br></code></pre></td></tr></table></figure>
+
+<h3 id="检查状态"><a href="#检查状态" class="headerlink" title="检查状态"></a>检查状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli doctor<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看授权状态"><a href="#查看授权状态" class="headerlink" title="查看授权状态"></a>查看授权状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth status --verify<br></code></pre></td></tr></table></figure>
+
+<h3 id="申请单个-scope"><a href="#申请单个-scope" class="headerlink" title="申请单个 scope"></a>申请单个 scope</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login \<br>  --scope <span class="hljs-string">&quot;calendar:calendar:readonly&quot;</span> \<br>  --no-wait \<br>  --json<br></code></pre></td></tr></table></figure>
+
+<h3 id="完成-device-flow-授权"><a href="#完成-device-flow-授权" class="headerlink" title="完成 device flow 授权"></a>完成 device flow 授权</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli auth login --device-code &lt;device_code&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Bot-发消息"><a href="#Bot-发消息" class="headerlink" title="Bot 发消息"></a>Bot 发消息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli im +messages-send \<br>  --user-id ou_xxx \<br>  --text <span class="hljs-string">&quot;你好&quot;</span> \<br>  --as bot<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建多维表格"><a href="#创建多维表格" class="headerlink" title="创建多维表格"></a>创建多维表格</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli base +base-create \<br>  --name <span class="hljs-string">&quot;测试多维表格&quot;</span> \<br>  --time-zone Asia/Shanghai \<br>  --as user<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看日程"><a href="#查看日程" class="headerlink" title="查看日程"></a>查看日程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lark-cli calendar +agenda --as user<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/knowledge-base/categories/AI%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" class="category-chain-item">AI工具学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/knowledge-base/tags/Claude-Code/" class="print-no-link">#Claude Code</a>
+      
+        <a href="/knowledge-base/tags/%E9%A3%9E%E4%B9%A6-CLI/" class="print-no-link">#飞书 CLI</a>
+      
+        <a href="/knowledge-base/tags/AI-Agent/" class="print-no-link">#AI Agent</a>
+      
+        <a href="/knowledge-base/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" class="print-no-link">#自动化</a>
+      
+        <a href="/knowledge-base/tags/%E9%A3%9E%E4%B9%A6/" class="print-no-link">#飞书</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>飞书 CLI 入门教程：让 AI Agent 真正操作你的飞书</div>
+      <div>https://zhihao-ailab.github.io/knowledge-base/2026/06/08/feishu-cli-agent-tutorial/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhihao-ailab</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/knowledge-base/2026/06/01/cursor-tutorial/" title="Cursor 使用教程：从下载到上手">
+                        <span class="hidden-mobile">Cursor 使用教程：从下载到上手</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/knowledge-base/js/events.js" ></script>
+<script  src="/knowledge-base/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/knowledge-base/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/knowledge-base/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/knowledge-base/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
